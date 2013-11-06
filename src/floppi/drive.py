@@ -48,6 +48,9 @@ class MusicalFloppy(Thread):
     ## @var _exit
     #  Exit flag for the thread.
 
+    ## @var _playing
+    #  Store if the drive is playing music.
+
     ## Constructor.
     #
     #  Set up the drive thread.
@@ -64,6 +67,7 @@ class MusicalFloppy(Thread):
         self._pin_step = pins[1]
         self._playqueue = []
         self._exit = False
+        self._playing = False
 
     ## Run the drive thread
     #
@@ -83,6 +87,8 @@ class MusicalFloppy(Thread):
             if self._playqueue:
                 tone = self._playqueue.pop(0)
                 self.tone(tone[0], tone[1])
+            else:
+                self._playing = False
 
     ## Stop this thread (set the exit flag).
     #
@@ -162,6 +168,15 @@ class MusicalFloppy(Thread):
         else:
             self._playqueue.append(tone)
 
+        self._playing = True
+
+    ## Lock until the drive has nothing more to play
+    #
+    #  @param self the object pointer
+    def playing(self):
+        while self._playing:
+            pass
+
 class MusicalFloppyEngine(Thread):
     ## @var _drives
     #  List of all drives in the engine.
@@ -189,7 +204,7 @@ class MusicalFloppyEngine(Thread):
     ## Run the engine thread
     #
     #  Main loop function for the engine thread. It will set up the drives, then
-    #  start playing tunes from the _playqueue list.
+    #  start playing tracks from the _playqueue list.
     #
     #  @param self the object pointer
     def run(self):
@@ -197,8 +212,22 @@ class MusicalFloppyEngine(Thread):
         for drive in self._drives:
             drive.start()
 
+        # Main loop
         while not self._exit:
-            pass
+            if self._playqueue:
+                # Get one track from the queue
+                track = self._playqueue.pop(0)
+
+                # Count tracks
+                trackn = 0
+                while track:
+                    # Assign track to drive
+                    self._drives[trackn].play(track.pop(0))
+                    trackn += 1
+
+                # Wait for all drives to stop playing
+                for drive in self._drives:
+                    drive.playing()
 
         # Signal all floppy drive threads to stop
         for drive in self._drives:
@@ -213,3 +242,13 @@ class MusicalFloppyEngine(Thread):
     #  @param self the object pointer
     def stop(self):
         self._exit = True
+
+    ## Add a track to the play queue
+    #
+    #  This method adds a track to the _playqueue, so the main loop
+    #  will pick it up and play it.
+    #
+    #  @param self the object pointer
+    #  @param track a list of lists of (frequency, duration) tuples
+    def play(self, track):
+        self._playqueue.append(track)
