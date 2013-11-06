@@ -176,5 +176,10 @@ def mml(macro):
             while macro and macro[0] in [str(x) for x in range(10)]:
                 n += macro.pop(0)
             current_c = int(n) * 12
-
+        elif char == "T":
+            n = ""
+            while macro and macro[0] in [str(x) for x in range(10)]:
+                n += macro.pop(0)
+            bpm = int(n)
+            lenght = 60.0/bpm
     return res
