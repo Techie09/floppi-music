@@ -100,5 +100,18 @@
 #  --
 #  A less-than symbol preceding the note n plays the note in the next
 #  lower octave.
+#
+#
+#  Example
+#  =======
+#
+#  The German children's song "Alle meine Entchen" in musical macro
+#  language would be:
+#
+#  c d e f g2 g2 a a a a g1 a a a a g1 f f f f e2 e2 d d d d c1
+#
+#
+#  @param macro string in the musical macro language
+#  @return a list of (frequency, duration) tuples
 def basic_play(macro):
     pass
