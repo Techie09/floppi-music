@@ -130,7 +130,10 @@ class MusicalFloppy(Thread):
     #  @param freq the frequency of the desired tone, in Hertz
     #  @param duration duration of the tone, in seconds
     def tone(self, freq, duration):
-        self.vibrate(1.0/freq, int(freq*duration))
+        if freq == 0:
+            sleep(duration)
+        else:
+            self.vibrate(1.0/freq, int(freq*duration))
 
     ## Add a tone to the play queue
     #
