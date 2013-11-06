@@ -16,25 +16,25 @@ class GPIO:
         _GPIO.setmode(_GPIO.BOARD)
 
         # Setup all pins as output
-        for pin in _gpios:
+        for pin in self._gpios:
             _GPIO.setup(pin, _GPIO.OUT)
 
     # Set a selected pin high, by native board pin number
     def high(self, pin):
-        if pin in _gpios:
+        if pin in self._gpios:
             _GPIO.output(pin, _GPIO.HIGH)
         else:
             raise NoSuchGPIO("Pin %d is not a GPIO pin." % pin)
 
     # Set a selected pin low, by native board pin number
     def low(self, pin):
-        if pin in _gpios:
+        if pin in self._gpios:
             _GPIO.output(pin, _GPIO.LOW)
         else:
             raise NoSuchGPIO("Pin %d is not a GPIO pin." % pin)
 
     def toggle(self, pin):
-        if pin in _gpios:
+        if pin in self._gpios:
             _GPIO.output(pin, not _GPIO.input(pin))
         else:
             raise NoSuchGPIO("Pin %d is not a GPIO pin." % pin)
