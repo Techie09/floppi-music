@@ -138,4 +138,7 @@ class MusicalFloppy(Thread):
     #  @param self the object pointer
     #  @param tone a tuple of (frequency, duration)
     def play(self, tone):
-        self._playqueue.append(tone)
+        if tone is list:
+            self._playqueue.extend(tone)
+        else:
+            self._playqueue.append(tone)
