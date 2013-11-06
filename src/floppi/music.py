@@ -26,7 +26,7 @@
 # of said person’s immediate fault when using the work as intended.
 # Import original GPIO as _GPIO because we define our own GPIO later
 
-## Parse a string in the "musical macro language" from GW-BASIC
+## Parse a string in the "music macro language"
 #
 #  Description of the musical macro language
 #  =========================================
@@ -105,13 +105,13 @@
 #  Example
 #  =======
 #
-#  The German children's song "Alle meine Entchen" in musical macro
+#  The German children's song "Alle meine Entchen" in music macro
 #  language would be:
 #
 #  c d e f g2 g2 a a a a g1 a a a a g1 f f f f e2 e2 d d d d c1
 #
 #
-#  @param macro string in the musical macro language
+#  @param macro string in the music macro language
 #  @return a list of (frequency, duration) tuples
-def basic_play(macro):
+def mml(macro):
     pass
