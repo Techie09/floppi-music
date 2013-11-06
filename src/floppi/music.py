@@ -171,5 +171,10 @@ def mml(macro):
 
             res.append((_notes[note], _length * part))
             res.append((0, _length - _length * part))
+        elif char == "O":
+            n = ""
+            while macro and macro[0] in [str(x) for x in range(10)]:
+                n += macro.pop(0)
+            current_c = int(n) * 12
 
     return res
