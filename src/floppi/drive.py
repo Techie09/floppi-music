@@ -1,11 +1,24 @@
+## @package floppi.drive
+#  Code to control a floppy drive for floppy music.
+
 from threading import Thread
 from time import sleep
 
+## Class for controlling one musical floppy drive.
+#
+#  This class controls one floppy drive in its own thread,
+#  so several drives can be used in parallel.
 class MusicalFloppy(Thread):
     # Queue of tones to play
     _playqueue = []
 
-    # Set up the drive thread
+    ## Constructor.
+    #
+    #  Set up the drive thread.
+    #
+    #  @param self the object pointer
+    #  @param gpio reference to the GPIO object in use
+    #  @param pins A tuple defining the pair of (direction, step) pins
     def __init__(self, gpio, pins):
         Thread.__init__(self)
 
