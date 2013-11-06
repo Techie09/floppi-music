@@ -177,7 +177,7 @@ class MusicalFloppyEngine(Thread):
     #  start playing tunes from the _playqueue list.
     #
     #  @param self the object pointer
-    def start(self):
+    def run(self):
         # Start all the drive threads
         for drive in self._drives:
             drive.start()
