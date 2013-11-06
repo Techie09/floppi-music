@@ -1,3 +1,5 @@
+# ~*~ coding: utf-8 ~*~
+
 ## @package floppi.rpi
 #  Wrapper for RPi.GPIO, reduced to what we need
 

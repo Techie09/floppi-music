@@ -1,3 +1,5 @@
+# ~*~ coding: utf-8 ~*~
+
 ## @package floppi.drive
 #  Code to control a floppy drive for floppy music.
 
