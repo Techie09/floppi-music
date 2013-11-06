@@ -30,11 +30,17 @@ from time import sleep
 class MusicalFloppy(Thread):
     ## @var _playqueue
     #  Queue of tones to play, containing tuples of (frequency, duration)
-    _playqueue = []
 
     ## @var _gpio
     #  Holds reference to the GPIO object in use
-    _gpio = None
+
+    ## @var _pin_direction
+    #  Holds the native pin number of the GPIO pin connected to the
+    #  DIRECTION pin of the floppy interface.
+
+    ## @var _pin_step
+    #  Holds the native pin number of the GPIO pin connected to the
+    #  STEP pin of the floppy interface.
 
     ## Constructor.
     #
