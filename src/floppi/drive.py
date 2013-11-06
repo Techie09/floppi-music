@@ -178,6 +178,9 @@ class MusicalFloppy(Thread):
             pass
 
 class MusicalFloppyEngine(Thread):
+    ## @var _playqueue
+    #  Queue of tracks to play, containing lists of tuples of (frequency, duration)
+
     ## @var _drives
     #  List of all drives in the engine.
 
@@ -199,6 +202,7 @@ class MusicalFloppyEngine(Thread):
         for pair in pins:
             self._drives.append(MusicalFloppy(gpio, pair))
 
+        self._playqueue = []
         self._exit = False
 
     ## Run the engine thread
