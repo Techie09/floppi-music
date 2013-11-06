@@ -56,6 +56,7 @@ class MusicalFloppy(Thread):
         self._gpio = gpio
         self._pin_direction = pins[0]
         self._pin_step = pins[1]
+        self._playqueue = []
 
     ## Run the drive thread
     #
