@@ -28,7 +28,7 @@ class NoSuchGPIO(Exception):
     pass
 
 ## GPIO class, reduced to what we need for Floppi-Music
-class GPIO:
+class GPIO():
     ## @var _gpios
     #  All pins that are GPIO pins
     _gpios = (3, 5, 7, 8, 10, 11, 12, 13, 15, 16, 18, 19, 21, 22, 23, 24, 26)
