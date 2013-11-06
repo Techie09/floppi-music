@@ -24,6 +24,7 @@
 # Import original GPIO as _GPIO because we define our own GPIO later
 
 from RPi import GPIO as _GPIO
+from timeit import timeit
 
 ## Exception to be thrown when trying to control a non-GPIO pin
 class NoSuchGPIO(Exception):
@@ -35,12 +36,31 @@ class GPIO():
     #  All pins that are GPIO pins
     _gpios = (3, 5, 7, 8, 10, 11, 12, 13, 15, 16, 18, 19, 21, 22, 23, 24, 26)
 
+    ## @var _gpiodelay
+    #  Measured delay for GPIO toggling
+
+    ## GPIO benchmark function to pass to timeit
+    #
+    #  @returns a reference to the real benchmark function for timeit
+    @staticmethod
+    def _gpio_bench():
+        _GPIO.setmode(_GPIO.BOARD)
+        _GPIO.setup(3, _GPIO.OUT)
+
+        def _gpio_bench_do():
+            _GPIO.output(3, not _GPIO.input(3))
+
+        return _gpio_bench_do
+
     ## Constructor
     #
     #  Initializes the whole GPIO header as output.
     #
     #  @param self the object pointer
     def __init__(self):
+        # Run GPIO benchmark
+        self._gpiodelay = timeit('gpio_bench()', 'from floppi.rpi import GPIO; gpio_bench = GPIO._gpio_bench()', number=100000) / 100000
+
         # Set GPIO mode to native Broadcom
         _GPIO.setmode(_GPIO.BOARD)
 

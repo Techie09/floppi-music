@@ -234,7 +234,7 @@ def mml(macro):
                 n += macro.pop(0)
 
             if not n:
-                n = 4
+                n = length
 
             while macro and macro[0] == ".":
                 macro.pop(0)

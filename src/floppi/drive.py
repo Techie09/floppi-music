@@ -25,6 +25,7 @@
 
 from threading import Thread
 from time import sleep
+from timeit import timeit
 
 ## Class for controlling one musical floppy drive.
 #
@@ -215,6 +216,7 @@ class MusicalFloppyEngine(Thread):
         # Start all the drive threads
         for drive in self._drives:
             drive.start()
+            sleep(1)
 
         # Main loop
         while not self._exit:
