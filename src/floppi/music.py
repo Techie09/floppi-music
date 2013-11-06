@@ -129,6 +129,7 @@ def mml(macro):
     current_c = 48
     part = 7.0/8
     length = 4
+    oswitch = ""
 
     # Normalize macro string
     macro = macro.upper()
@@ -167,13 +168,19 @@ def mml(macro):
 
             _length = length
             if n:
-                _length = n
+                _length = int(n)
 
             while macro and macro[0] == ".":
                 macro.pop(0)
                 _length /= 1.5
 
             duration = ((60.0 / bpm) * 4) / _length
+
+            if oswitch == "<":
+                note -= 12
+            elif oswitch == ">":
+                note += 12
+            oswitch = ""
 
             res.append((_notes[note], duration * part))
             res.append((0, duration - duration * part))
@@ -245,5 +252,7 @@ def mml(macro):
                 part = 3.0/4
             elif mode == "L":
                 part = 1.0
+        elif char in ("<", ">"):
+            oswitch = char
 
     return res
