@@ -1,3 +1,5 @@
+# ~+~ coding: utf-8 ~*~
+
 ## @package floppi.music
 #  Functions and code to parse various input formats into
 #  (frequency, duration) tuples for floppi.drive.MusicalFloppy.tone .
@@ -26,6 +28,13 @@
 # of said person’s immediate fault when using the work as intended.
 # Import original GPIO as _GPIO because we define our own GPIO later
 
+_notes = []
+_freq = 16.35
+while len(_notes) < 84:
+    _notes.append(_freq)
+    _freq *= pow(2, 1.0/12)
+_freq = None
+
 ## Parse a string in the "music macro language"
 #
 #  Description of the musical macro language
@@ -36,8 +45,7 @@
 #  A-G [#,+,-]
 #  -----------
 #  A-G are notes. # or + following a note produces a sharp; - produces a
-#  flat. Any note followed by #,+,or - must refer to a black key on a
-#  piano.
+#  flat.
 #
 #  L(n)    
 #  ----
@@ -114,4 +122,54 @@
 #  @param macro string in the music macro language
 #  @return a list of (frequency, duration) tuples
 def mml(macro):
-    pass
+    res = []
+
+    # State machine variables
+    bpm = 120
+    current_c = 48
+    part = 7.0/8
+    length = 60.0 / bpm
+
+    # Normalize macro string
+    macro = macro.upper()
+    macro = macro.replace(" ", "")
+    macro = list(macro)
+
+    while macro:
+        char = macro.pop(0)
+
+        if char in ("C", "D", "E", "F", "G", "A", "B"):
+            if char == "C":
+                note = current_c
+            elif char == "D":
+                note = current_c + 2
+            elif char == "E":
+                note = current_c + 4
+            elif char == "F":
+                note = current_c + 5
+            elif char == "G":
+                note = current_c + 7
+            elif char == "A":
+                note = current_c + 9
+            elif char == "B":
+                note = current_c + 11
+
+            if macro and macro[0] in ("#", "+"):
+                note += 1
+                macro.pop(0)
+            elif macro and macro[0] == "-":
+                note -= 1
+                macro.pop(0)
+
+            n = ""
+            while macro and macro[0] in [str(x) for x in range(10)]:
+                n += macro.pop(0)
+
+            _length = length
+            if n:
+                _length = 60.0 / bpm * 4 / float(n)
+
+            res.append((_notes[note], _length * part))
+            res.append((0, _length - _length * part))
+
+    return res
