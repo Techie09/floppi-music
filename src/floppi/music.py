@@ -1,4 +1,4 @@
-# ~+~ coding: utf-8 ~*~
+# ~*~ coding: utf-8 ~*~
 
 ## @package floppi.music
 #  Functions and code to parse various input formats into
