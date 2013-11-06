@@ -130,6 +130,9 @@ class MusicalFloppy(Thread):
     #  @param freq the frequency of the desired tone, in Hertz
     #  @param duration duration of the tone, in seconds
     def tone(self, freq, duration):
+        if duration == 0:
+            return
+
         if freq == 0:
             sleep(duration)
         else:

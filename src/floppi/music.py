@@ -128,7 +128,7 @@ def mml(macro):
     bpm = 120
     current_c = 48
     part = 7.0/8
-    length = 60.0 / bpm
+    length = 4
 
     # Normalize macro string
     macro = macro.upper()
@@ -167,19 +167,83 @@ def mml(macro):
 
             _length = length
             if n:
-                _length = 60.0 / bpm * 4 / float(n)
+                _length = n
 
-            res.append((_notes[note], _length * part))
-            res.append((0, _length - _length * part))
+            while macro and macro[0] == ".":
+                macro.pop(0)
+                _length /= 1.5
+
+            duration = ((60.0 / bpm) * 4) / _length
+
+            res.append((_notes[note], duration * part))
+            res.append((0, duration - duration * part))
         elif char == "O":
             n = ""
             while macro and macro[0] in [str(x) for x in range(10)]:
                 n += macro.pop(0)
+
+            if not n:
+                n = 4
+
             current_c = int(n) * 12
         elif char == "T":
             n = ""
             while macro and macro[0] in [str(x) for x in range(10)]:
                 n += macro.pop(0)
+
+            if not n:
+                n = 120
+
             bpm = int(n)
-            lenght = 60.0/bpm
+        elif char == "L":
+            n = ""
+            while macro and macro[0] in [str(x) for x in range(10)]:
+                n += macro.pop(0)
+
+            if not n:
+                n = 4
+
+            length = int(n)
+        elif char == "N":
+            n = ""
+            while macro and macro[0] in [str(x) for x in range(10)]:
+                n += macro.pop(0)
+
+            if not n:
+                n = 0
+
+            note = int(n) - 1
+
+            duration = ((60.0 / bpm) * 4) / length
+
+            if note > -1:
+                res.append((_notes[note], duration * part))
+                res.append((0, duration - duration * part))
+            else:
+                res.append((0, duration))
+        elif char == "P":
+            n = ""
+            while macro and macro[0] in [str(x) for x in range(10)]:
+                n += macro.pop(0)
+
+            if not n:
+                n = 4
+
+            while macro and macro[0] == ".":
+                macro.pop(0)
+                n /= 1.5
+
+            duration = ((60.0 / bpm) * 4) / int(n)
+
+            res.append((0, duration))
+        elif char == "M":
+            mode = macro.pop(0)
+
+            if mode == "N":
+                part = 7.0/8
+            elif mode == "S":
+                part = 3.0/4
+            elif mode == "L":
+                part = 1.0
+
     return res
