@@ -1,7 +1,8 @@
 # ~*~ coding: utf-8 ~*~
 
 ## @package floppi.drive
-#  Code to control a floppy drive for floppy music.
+#  Code to control a floppy drive for floppy music and an engine of
+#  musical floppy drives.
 
 # Copyright © 2013
 #       Dominik George <nik@naturalnet.de>
@@ -150,3 +151,33 @@ class MusicalFloppy(Thread):
             self._playqueue.extend(tone)
         else:
             self._playqueue.append(tone)
+
+class MusicalFloppyEngine(Thread):
+    ## @var _drives
+    #  List of all drives in the engine.
+
+    ## Constructor.
+    #
+    #  Set up the engine thread.
+    #
+    #  @param self the object pointer
+    #  @param gpio reference to the GPIO object in use
+    #  @param pins a list of (direction, step) pin pairs for the drives
+    def __init__(self, gpio, pins):
+        Thread.__init__(self)
+
+        # Setup all the drives
+        self._drives = []
+        for pair in pins:
+            self._drives.append(MusicalFloppy(gpio, pair))
+
+    ## Run the engine thread
+    #
+    #  Main loop function for the engine thread. It will set up the drives, then
+    #  start playing tunes from the _playqueue list.
+    #
+    #  @param self the object pointer
+    def start(self):
+        # Start all the drive threads
+        for drive in self._drives:
+            drive.start()
