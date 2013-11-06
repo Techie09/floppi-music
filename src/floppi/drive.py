@@ -45,6 +45,9 @@ class MusicalFloppy(Thread):
     #  Holds the native pin number of the GPIO pin connected to the
     #  STEP pin of the floppy interface.
 
+    ## @var _exit
+    #  Exit flag for the thread.
+
     ## Constructor.
     #
     #  Set up the drive thread.
@@ -60,6 +63,7 @@ class MusicalFloppy(Thread):
         self._pin_direction = pins[0]
         self._pin_step = pins[1]
         self._playqueue = []
+        self._exit = False
 
     ## Run the drive thread
     #
@@ -75,10 +79,16 @@ class MusicalFloppy(Thread):
         # Go to home position, which is the middle track
         self.home()
 
-        while True:
+        while not self._exit:
             if self._playqueue:
                 tone = self._playqueue.pop(0)
                 self.tone(tone[0], tone[1])
+
+    ## Stop this thread (set the exit flag).
+    #
+    #  @param self the object pointer
+    def stop(self):
+        self._exit = True
 
     ## Move the floppy head a certain number of tracks
     #
@@ -156,6 +166,9 @@ class MusicalFloppyEngine(Thread):
     ## @var _drives
     #  List of all drives in the engine.
 
+    ## @var _exit
+    #  Exit flag for the thread.
+
     ## Constructor.
     #
     #  Set up the engine thread.
@@ -171,6 +184,8 @@ class MusicalFloppyEngine(Thread):
         for pair in pins:
             self._drives.append(MusicalFloppy(gpio, pair))
 
+        self._exit = False
+
     ## Run the engine thread
     #
     #  Main loop function for the engine thread. It will set up the drives, then
@@ -181,3 +196,20 @@ class MusicalFloppyEngine(Thread):
         # Start all the drive threads
         for drive in self._drives:
             drive.start()
+
+        while not self._exit:
+            pass
+
+        # Signal all floppy drive threads to stop
+        for drive in self._drives:
+            drive.stop()
+
+        # Wait for all drive threads to end
+        for drive in self._drives:
+            drive.join()
+
+    ## Stop this thread (set the exit flag).
+    #
+    #  @param self the object pointer
+    def stop(self):
+        self._exit = True
