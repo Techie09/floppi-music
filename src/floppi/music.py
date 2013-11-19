@@ -109,6 +109,11 @@ _freq = None
 #  A less-than symbol preceding the note n plays the note in the next
 #  lower octave.
 #
+#  |
+#  -
+#
+#  Optionally used as a synchronization mark for multi-track music.
+#
 #
 #  Example
 #  =======
@@ -254,5 +259,7 @@ def mml(macro):
                 part = 1.0
         elif char in ("<", ">"):
             oswitch = char
+        elif char == "|":
+            res.append(1)
 
     return res

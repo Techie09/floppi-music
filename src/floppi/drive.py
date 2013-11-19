@@ -23,7 +23,7 @@
 # damage or existence of a defect, except proven that it results out
 # of said person’s immediate fault when using the work as intended.
 
-from threading import Thread
+from threading import Thread, Event
 from time import sleep
 from timeit import timeit
 
@@ -49,8 +49,11 @@ class MusicalFloppy(Thread):
     ## @var _exit
     #  Exit flag for the thread.
 
-    ## @var _playing
-    #  Store if the drive is playing music.
+    ## @var _engine
+    #  Reference to the FloppyMusicEngine
+
+    ## @var wakeup
+    #  An event used by the engine to wake the thread up
 
     ## Constructor.
     #
@@ -59,7 +62,7 @@ class MusicalFloppy(Thread):
     #  @param self the object pointer
     #  @param gpio reference to the GPIO object in use
     #  @param pins A tuple defining the pair of (direction, step) pins
-    def __init__(self, gpio, pins):
+    def __init__(self, gpio, pins, engine):
         Thread.__init__(self)
 
         # Store attributes
@@ -68,7 +71,8 @@ class MusicalFloppy(Thread):
         self._pin_step = pins[1]
         self._playqueue = []
         self._exit = False
-        self._playing = False
+        self._engine = engine
+        self.wakeup = Event()
 
     ## Run the drive thread
     #
@@ -87,9 +91,14 @@ class MusicalFloppy(Thread):
         while not self._exit:
             if self._playqueue:
                 tone = self._playqueue.pop(0)
-                self.tone(tone[0], tone[1])
+                if tone == 1:
+                    self._engine.syncmark(self)
+                    self.wakeup.wait()
+                    self.wakeup.clear()
+                else:
+                    self.tone(tone[0], tone[1])
             else:
-                self._playing = False
+                self._engine.finished(self)
 
     ## Stop this thread (set the exit flag).
     #
@@ -132,12 +141,14 @@ class MusicalFloppy(Thread):
     #  @param self the object pointer
     #  @param interval the pause between movements, in seconds
     #  @param count how often to move the head
-    def vibrate(self, interval, count):
+    #  @param rest how long to wait to compensate rounding problems
+    def vibrate(self, interval, count, rest):
         for i in range(count):
             self._gpio.toggle(self._pin_step)
             sleep(interval)
             self._gpio.toggle(self._pin_step)
             self._gpio.toggle(self._pin_direction)
+        sleep(rest)
 
     ## Play a certain frequency, for duration seconds
     #
@@ -154,7 +165,7 @@ class MusicalFloppy(Thread):
         if freq == 0:
             sleep(duration)
         else:
-            self.vibrate(1.0/freq, int(freq*duration))
+            self.vibrate(1.0/freq, int(freq*duration), duration-int(freq*duration)/freq)
 
     ## Add a tone to the play queue
     #
@@ -169,21 +180,18 @@ class MusicalFloppy(Thread):
         else:
             self._playqueue.append(tone)
 
-        self._playing = True
-
-    ## Lock until the drive has nothing more to play
-    #
-    #  @param self the object pointer
-    def playing(self):
-        while self._playing:
-            pass
-
 class MusicalFloppyEngine(Thread):
     ## @var _playqueue
     #  Queue of tracks to play, containing lists of tuples of (frequency, duration)
 
     ## @var _drives
     #  List of all drives in the engine.
+
+    ## @var _waiting
+    #  List of drives waiting at syncmarks
+
+    ## @var _finished
+    #  List of drives waiting at syncmarks
 
     ## @var _exit
     #  Exit flag for the thread.
@@ -201,9 +209,11 @@ class MusicalFloppyEngine(Thread):
         # Setup all the drives
         self._drives = []
         for pair in pins:
-            self._drives.append(MusicalFloppy(gpio, pair))
+            self._drives.append(MusicalFloppy(gpio, pair, self))
 
         self._playqueue = []
+        self._waiting = []
+        self._finished = []
         self._exit = False
 
     ## Run the engine thread
@@ -231,9 +241,15 @@ class MusicalFloppyEngine(Thread):
                     self._drives[trackn].play(track.pop(0))
                     trackn += 1
 
-                # Wait for all drives to stop playing
-                for drive in self._drives:
-                    drive.playing()
+            # Wait for all drives to stop playing
+            if len(self._finished) == len(self._drives):
+                break
+
+            # Check whether all drives have reached a syncmark
+            if len(self._waiting) == len(self._drives):
+                for drive in self._waiting:
+                    drive.wakeup.set()
+                self._waiting = []
 
         # Signal all floppy drive threads to stop
         for drive in self._drives:
@@ -258,3 +274,25 @@ class MusicalFloppyEngine(Thread):
     #  @param track a list of lists of (frequency, duration) tuples
     def play(self, track):
         self._playqueue.append(track)
+
+    ## Drive has reached a syncmark, register
+    #
+    #  This method is called by member drives when they reach a
+    #  syncmark. The method appends the drive to the list of waiting
+    #  drives.
+    #
+    #  @param self the object pointer
+    #  @param drive the relevant drive
+    def syncmark(self, drive):
+        self._waiting.append(drive)
+
+    ## Drive has reached the end
+    #
+    #  This method is called by member drives when they reach the end
+    #  of the playqueue. The method appends the drive to the list of
+    #  finished drives.
+    #
+    #  @param self the object pointer
+    #  @param drive the relevant drive
+    def finished(self, drive):
+        self._finished.append(drive)
