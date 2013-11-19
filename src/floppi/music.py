@@ -40,7 +40,7 @@ _freq = None
 #  Description of the musical macro language
 #  =========================================
 #
-#  Taken from http://www.antonis.de/qbebooks/gwbasman/play.html .
+#  Based on http://www.antonis.de/qbebooks/gwbasman/play.html .
 #
 #  A-G [#,+,-]
 #  -----------
@@ -113,6 +113,7 @@ _freq = None
 #  -
 #
 #  Optionally used as a synchronization mark for multi-track music.
+#  This is a proprietary extension in the Floppi-Music project.
 #
 #
 #  Example
