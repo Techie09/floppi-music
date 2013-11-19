@@ -226,7 +226,6 @@ class MusicalFloppyEngine(Thread):
         # Start all the drive threads
         for drive in self._drives:
             drive.start()
-            sleep(1)
 
         # Main loop
         while not self._exit:
