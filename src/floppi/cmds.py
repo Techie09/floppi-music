@@ -54,6 +54,9 @@ def play():
     engine = MusicalFloppyEngine(GPIO(), drives)
     engine.start()
 
+    print(voices)
+    return 0
+
     # Enqueue playback
     engine.play(voices)
 

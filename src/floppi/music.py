@@ -292,7 +292,7 @@ def mml_file(path):
     vlists = []
     vcount = 0
 
-    with open(file, "r") as f:
+    with open(path, "r") as f:
         for l in f:
             if l.strip().startswith("#"):
                 continue
