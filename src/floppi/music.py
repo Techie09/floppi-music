@@ -264,3 +264,63 @@ def mml(macro):
             res.append(1)
 
     return res
+
+## Parse a file in the music macro language
+#
+#  The MML file format as used by Floppi-Music is proprietary.
+#
+#  File format
+#  ===========
+#
+#  Comments
+#  --------
+#
+#  Lines starting with # are comments. At the beginning of the file,
+#  comments may be used to encode metadata. This is yet to be specified.
+#
+#  Voices
+#  ------
+#  The voices of a song are interleaved. They are grouped per notation
+#  system, and the notation systems are seperated by empty lines.
+#
+#
+#  @param path the path to the MML file
+#  @return a list of lists of (frequency, duration) tuples, suitable
+#          for passing to the MusicalFloppyEnging
+def mml_file(path):
+    vstrings = []
+    vlists = []
+    vcount = 0
+
+    with open(file, "r") as f:
+        for l in f:
+            if l.strip().startswith("#"):
+                continue
+            elif l.strip() == "":
+                vcount = 0
+            else:
+                if len(vstrings) <= vcount:
+                    vstrings.append("")
+                vstrings[vcount] += l.strip()
+
+    for v in vstrings:
+        vlists.append(mml(v))
+
+    return vlists
+
+## Determine the function to use to parse a given input file
+#
+#  This function is quite dumb right now and only uses the filename
+#  extension.
+#
+#  This function only returns a reference to the function to use for
+#  parsing the file in question. Use code like this to parse an
+#  arbitrary file:
+#
+#  get_music_parser(path)(path)
+#
+#  @param path the path to the file to analyze
+#  @return a reference to the function to use for parsing
+def get_music_parser(path):
+    if path.endswith(".mml"):
+        return mml_file
