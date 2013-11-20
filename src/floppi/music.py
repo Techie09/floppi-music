@@ -26,8 +26,8 @@
 # of dealing in the work, even if advised of the possibility of such
 # damage or existence of a defect, except proven that it results out
 # of said person’s immediate fault when using the work as intended.
-# Import original GPIO as _GPIO because we define our own GPIO later
 
+# Pre-calculate note frequencies
 _notes = [440 * pow(pow(2, 1.0/12), n-58) for n in xrange(1, 85)]
 
 ## Parse a string in the "music macro language"
