@@ -28,12 +28,7 @@
 # of said person’s immediate fault when using the work as intended.
 # Import original GPIO as _GPIO because we define our own GPIO later
 
-_notes = []
-_freq = 16.35
-while len(_notes) < 84:
-    _notes.append(_freq)
-    _freq *= pow(2, 1.0/12)
-_freq = None
+_notes = [440 * pow(pow(2, 1.0/12), n-58) for n in xrange(1, 85)]
 
 ## Parse a string in the "music macro language"
 #
