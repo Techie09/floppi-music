@@ -302,6 +302,7 @@ def mml_file(path):
                 if len(vstrings) <= vcount:
                     vstrings.append("")
                 vstrings[vcount] += l.strip()
+                vcount += 1
 
     for v in vstrings:
         vlists.append(mml(v))
