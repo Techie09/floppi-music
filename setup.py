@@ -28,7 +28,7 @@ setup(
     version          = '0.01',
     license          = 'MirOS',
     long_description = 'Crazily advanced floppy music player for Raspberry Pi',
-    url              = 'https://github.com/Natureshadow/floppi-music',
+    url              = 'http://natureshadow.github.com/floppi-music',
 
     # Author information
     author       = 'Dominik George, Eike Tim Jesinghaus',
