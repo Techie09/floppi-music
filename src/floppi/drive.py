@@ -99,6 +99,7 @@ class MusicalFloppy(Thread):
                     self.tone(tone[0], tone[1])
             else:
                 self._engine.finished(self)
+                break
 
     ## Stop this thread (set the exit flag).
     #
