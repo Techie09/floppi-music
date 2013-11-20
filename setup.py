@@ -41,7 +41,7 @@ setup(
                            },
     entry_points         = {
                             'console_scripts': [
-                                                'floppi-play = floppi.cmds.play'
+                                                'floppi-play = floppi.cmds:play'
                                                ]
                            },
 
