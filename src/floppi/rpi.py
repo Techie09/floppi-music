@@ -45,6 +45,7 @@ class GPIO():
     @staticmethod
     def _gpio_bench():
         _GPIO.setmode(_GPIO.BOARD)
+        _GPIO.setwarnings(False)
         _GPIO.setup(3, _GPIO.OUT)
 
         def _gpio_bench_do():

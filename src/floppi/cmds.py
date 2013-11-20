@@ -21,11 +21,20 @@
 # damage or existence of a defect, except proven that it results out
 # of said person’s immediate fault when using the work as intended.
 
-from sys import argv
+import argparse
+import pkg_resources
+from sys import stderr
 from floppi.music import get_music_parser
 from floppi.drive import MusicalFloppyEngine
 from floppi.rpi import GPIO
 from floppi.config import drives
+
+# Banner content for all commands
+_banner= [
+          "Copyright (c) 2013, Dominik George <nik@naturalnet.de>",
+          "              2013, Eike Tim Jesinghaus <eike@naturalnet.de>",
+          "Published under The MirOS Licence"
+         ]
 
 ## Entry point for playing a single file
 #
@@ -37,18 +46,42 @@ from floppi.config import drives
 #
 #  @return 0 on success, >0 on error
 def play():
-    def usage():
-        print("Usage: %s PATH" % argv[0])
-        print("")
-        print("   PATH      -    Path to the file to play")
+    # Parse arguments
+    aparser = argparse.ArgumentParser()
+    aparser.add_argument("path", help="path to the file to play")
+    aparser.add_argument("-q", "--quiet", help="suppress status, metadata and other output to stderr", action="store_true")
+    args = aparser.parse_args()
 
-    if len(argv) != 2:
-        usage()
+    # Print banner
+    if not args.quiet:
+        pkg = pkg_resources.require("Floppi-Music")[0]
+        stderr.write("Floppi-Music File Player v%s\n" % pkg.version)
+        for l in _banner:
+            stderr.write("%s\n" % l)
+        stderr.write("\n")
+        stderr.write("Playing file: %s\n" % args.path)
+
+    # Find parsers and call it
+    try:
+        parser, mparser = get_music_parser(args.path)
+        if not args.quiet:
+            stderr.write("Trying parser: %s\n" % parser.__name__)
+    except:
+        stderr.write("\nNo parser found!\n")
         return 1
 
-    # Find parser and call it
-    parser = get_music_parser(argv[1])
-    voices = parser(argv[1])
+#    try:
+    meta = mparser(args.path)
+    voices = parser(args.path)
+#    except:
+#        stderr.write("\nFailed to parse with %s!\n" % parser.__name__)
+#        return 2
+
+    # Print metadata if not quiet
+    if not args.quiet:
+        stderr.write("\n")
+        for k in meta:
+            stderr.write("%s:\t%s\n" % (k.capitalize(), meta[k]))
 
     # Start engine
     engine = MusicalFloppyEngine(GPIO(), drives)

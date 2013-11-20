@@ -304,19 +304,49 @@ def mml_file(path):
 
     return vlists
 
+## Parse a file in the music macro language and return metadata
+#
+#  The MML file format as used by Floppi-Music is proprietary.
+#
+#  @param path the path to the MML file
+#  @return a dictionary of metadata
+def mml_file_meta(path):
+    state = 0
+    vcount = 0
+    meta = {}
+
+    with open(path, "r") as f:
+        for l in f:
+            if state == 0:
+                # Header fields
+                if l.strip() == "":
+                    state = 1
+                elif l.strip().startswith("# ") and ":" in l:
+                    parts = l.strip()[1:].split(":")
+                    key = parts.pop(0)
+                    value = ":".join(parts)
+
+                    meta[key.strip().lower()] = value.strip()
+            elif state == 1:
+                # Skip first space
+                if not l.strip() == "":
+                    state = 2
+            elif state == 2:
+                if not l.strip() == "":
+                    vcount += 1
+                else:
+                    # Everything of interest has gone
+                    break
+
+    return meta
+
 ## Determine the function to use to parse a given input file
 #
 #  This function is quite dumb right now and only uses the filename
 #  extension.
 #
-#  This function only returns a reference to the function to use for
-#  parsing the file in question. Use code like this to parse an
-#  arbitrary file:
-#
-#  get_music_parser(path)(path)
-#
 #  @param path the path to the file to analyze
-#  @return a reference to the function to use for parsing
+#  @return a tuple of parser and metadata parser
 def get_music_parser(path):
     if path.endswith(".mml"):
-        return mml_file
+        return (mml_file, mml_file_meta)
