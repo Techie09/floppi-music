@@ -43,12 +43,12 @@ setup(
                             'console_scripts': [
                                                 'floppi-play = floppi.cmds.play'
                                                ]
-                           }
+                           },
 
     # Distribution information
     zip_safe         = False,
     install_requires = [
-                        'RPi'
+                        'RPi.GPIO'
                        ],
     classifiers      = [
                         'Development Status :: 3 - Alpha',
