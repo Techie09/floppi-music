@@ -2,7 +2,9 @@ Floppi-Music - Crazily advanced floppy music player for Raspberry Pi
 ====================================================================
 
 The Floppi-Music project aims at creating a "crazily advanced" floppy
-music framework for the Raspberry Pi, written in pure Python.
+music framework for the Raspberry Pi, written in pure Python. The full
+documentation is hosted
+(http://natureshadow.github.com/floppi-music)[here] on GitHub pages.
 
 Motivation
 ----------
