@@ -1,12 +1,12 @@
-# Artist:    Johann Pacehlbel
+# Artist:    Johann Pachelbel
 # Title:     Canon and Gigue in D Major
 # Year:      1680
 # Copyright: MML scores (c) 2013, Dominik George <nik@naturalnet.de>
 
-t84 p1      | p1   | f+edc+o3  | babo4c+ | dc+o3ba  | gf+ge     |
-t84 do3abf+ | gdga | o4do3abf+ | gdp2    | o4f+edc+ | o3babo4c+ |
-t84 do3abf+ | gdga | o4do3abf+ | gdga    | >dabf+   | gdp2      |
-t84 do3abf+ | gdga | o4do3abf+ | gdga    | >dabf+   | gdga      |
+t54 p1      | p1   | f+edc+o3  | babo4c+ | dc+o3ba  | gf+ge     |
+t54 do3abf+ | gdga | o4do3abf+ | gdp2    | o4f+edc+ | o3babo4c+ |
+t54 do3abf+ | gdga | o4do3abf+ | gdga    | >dabf+   | gdp2      |
+t54 do3abf+ | gdga | o4do3abf+ | gdga    | >dabf+   | gdga      |
 
 o4do3abf+     | gdga      | >dabf+          | gdga            |
 dc+o3ba       | gf+ge     | l8df+agf+df+e   | d<bdagbag       |
