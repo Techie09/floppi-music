@@ -32,6 +32,19 @@
 #  The list comprehension creates a list of 84 frequencies from C0 to B6
 _notes = [440 * pow(pow(2, 1.0/12), n-58) for n in xrange(1, 85)]
 
+## Calculate playback length of a list of (frequency, duration) tuples
+#
+#  This function looks at all the tuples in a playback list and estimates
+#  the playback duration by adding up the durations.
+#
+#  @param track the track list
+#  @return the estimated duration in seconds
+def estimate_duration(track):
+    # Remove all non-tuples from the list; integer 1 is abused by mml_parse
+    # for syncmarks; extract second entries of tuples and add them up and
+    # return the result, all in one list comprehension -- I ❤ Python!
+    return sum([x[1] for x in track if type(x) is tuple])
+
 ## Parse a string in the "music macro language"
 #
 #  Description of the musical macro language
