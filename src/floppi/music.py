@@ -27,7 +27,9 @@
 # damage or existence of a defect, except proven that it results out
 # of said person’s immediate fault when using the work as intended.
 
-# Pre-calculate note frequencies
+## Pre-calculated note frequencies
+#
+#  The list comprehension creates a list of 84 frequencies from C0 to B6
 _notes = [440 * pow(pow(2, 1.0/12), n-58) for n in xrange(1, 85)]
 
 ## Parse a string in the "music macro language"
