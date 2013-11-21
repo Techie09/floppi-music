@@ -5,6 +5,7 @@
 
 # Copyright © 2013
 #       Dominik George <nik@naturalnet.de>
+#       Thorsten “mirabilos” Glaser <tg@mirbsd.org>
 #
 # Provided that these terms and disclaimer and all copyright notices
 # are retained or reproduced in an accompanying document, permission
@@ -79,8 +80,11 @@ def play():
     # Print metadata if not quiet
     if not args.quiet:
         stderr.write("\n")
+        metamaxlen = reduce(lambda x, y: x > y and x or y,
+          [len(k.capitalize().decode('utf-8')) for k in meta], 0)
         for k in meta:
-            stderr.write("%s:\t%s\n" % (k.capitalize(), meta[k]))
+            stderr.write(("%" + str(metamaxlen) + "s:\t%s\n") % \
+              (k.capitalize(), meta[k]))
         stderr.write("\n")
 
     # Start engine
