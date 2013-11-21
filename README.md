@@ -39,6 +39,12 @@ Wiring scheme
 The wiring scheme for the Raspberry and floppy interfaces can be found
 [here](wiring_8md_source.html).
 
+Get the code
+------------
+
+The code is hsoted [http://github.com/Natureshadow/floppi-music)(here)
+on GitHub.
+
 What works
 ----------
 
