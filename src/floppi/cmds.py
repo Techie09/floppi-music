@@ -80,10 +80,9 @@ def play():
     # Print metadata if not quiet
     if not args.quiet:
         stderr.write("\n")
-        metamaxlen = reduce(lambda x, y: x > y and x or y,
-          [len(k.capitalize().decode('utf-8')) for k in meta], 0)
+        metamaxlen = max([len(k.capitalize().decode('utf-8')) for k in meta])
         for k in meta:
-            stderr.write(("%" + str(metamaxlen) + "s:\t%s\n") % \
+            stderr.write(("    %" + str(metamaxlen) + "s: %s\n") % \
               (k.capitalize(), meta[k]))
         stderr.write("\n")
 
