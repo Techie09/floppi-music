@@ -39,7 +39,7 @@ setup(
     package_dir          = {
                             '': 'src'
                            },
-    package_data         = {'floppi': ['../../songs/*']},
+    package_data         = {'floppi': ['songs/*']},
     entry_points         = {
                             'console_scripts': [
                                                 'floppi-play = floppi.cmds:play'
