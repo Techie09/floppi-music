@@ -136,79 +136,80 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    @staticmethod</div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classfloppi_1_1rpi_1_1GPIO.html#a1b6ac3ac790f65bc9b3d48fb11233e55">   46</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#a1b6ac3ac790f65bc9b3d48fb11233e55">_gpio_bench</a>():</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        _GPIO.setmode(_GPIO.BOARD)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        _GPIO.setup(3, _GPIO.OUT)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">def </span>_gpio_bench_do():</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            _GPIO.output(3, <span class="keywordflow">not</span> _GPIO.input(3))</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> _gpio_bench_do</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">## Constructor</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">#  Initializes the whole GPIO header as output.</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">#  @param self the object pointer</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classfloppi_1_1rpi_1_1GPIO.html#a0456e5fc79bf6245666a99c6e535acd5">   60</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#a0456e5fc79bf6245666a99c6e535acd5">__init__</a>(self):</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment"># Run GPIO benchmark</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classfloppi_1_1rpi_1_1GPIO.html#ae5d97b58307af8d3b1e612273509e41d">   62</a></span>&#160;        self.<a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#ae5d97b58307af8d3b1e612273509e41d">_gpiodelay</a> = timeit(<span class="stringliteral">&#39;gpio_bench()&#39;</span>, <span class="stringliteral">&#39;from floppi.rpi import GPIO; gpio_bench = GPIO._gpio_bench()&#39;</span>, number=100000) / 100000</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="comment"># Set GPIO mode to native Broadcom</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        _GPIO.setmode(_GPIO.BOARD)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment"># Setup all pins as output</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">for</span> pin <span class="keywordflow">in</span> self.<a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#ad27b3609853137827119f8d19ca1b956">_gpios</a>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            _GPIO.setup(pin, _GPIO.OUT)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">## Set a selected pin high, by native board pin number</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">#  @param self the object pointer</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">#  @param pin the native number of the pin to set</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">#  @throws NoSuchGPIO if the selected pin is not a GPIO pin</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classfloppi_1_1rpi_1_1GPIO.html#a65e9ca09cd6a795ad9944a409a915c32">   77</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#a65e9ca09cd6a795ad9944a409a915c32">high</a>(self, pin):</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">if</span> pin <span class="keywordflow">in</span> self.<a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#ad27b3609853137827119f8d19ca1b956">_gpios</a>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            _GPIO.output(pin, _GPIO.HIGH)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classfloppi_1_1rpi_1_1NoSuchGPIO.html">NoSuchGPIO</a>(<span class="stringliteral">&quot;Pin %d is not a GPIO pin.&quot;</span> % pin)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">## Set a selected pin low, by native board pin number</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">#  @param self the object pointer</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">#  @param pin the native number of the pin to set</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">#  @throws NoSuchGPIO if the selected pin is not a GPIO pin</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classfloppi_1_1rpi_1_1GPIO.html#a1a373b6bff299aa88010c20028daeef0">   89</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#a1a373b6bff299aa88010c20028daeef0">low</a>(self, pin):</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">if</span> pin <span class="keywordflow">in</span> self.<a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#ad27b3609853137827119f8d19ca1b956">_gpios</a>:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            _GPIO.output(pin, _GPIO.LOW)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classfloppi_1_1rpi_1_1NoSuchGPIO.html">NoSuchGPIO</a>(<span class="stringliteral">&quot;Pin %d is not a GPIO pin.&quot;</span> % pin)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">## Set a selected pin low if it was high, and high if it was low.</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">#  This method looks at the reported state of the pin.</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">#  @param self the object pointer</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">#  @param pin the native number of the pin to set</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">#</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">#  @throws NoSuchGPIO if the selected pin is not a GPIO pin</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classfloppi_1_1rpi_1_1GPIO.html#a7ce1313d2fb51ebf4790c2918c342269">  103</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#a7ce1313d2fb51ebf4790c2918c342269">toggle</a>(self, pin):</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">if</span> pin <span class="keywordflow">in</span> self.<a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#ad27b3609853137827119f8d19ca1b956">_gpios</a>:</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            _GPIO.output(pin, <span class="keywordflow">not</span> _GPIO.input(pin))</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classfloppi_1_1rpi_1_1NoSuchGPIO.html">NoSuchGPIO</a>(<span class="stringliteral">&quot;Pin %d is not a GPIO pin.&quot;</span> % pin)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        _GPIO.setwarnings(<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        _GPIO.setup(3, _GPIO.OUT)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">def </span>_gpio_bench_do():</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            _GPIO.output(3, <span class="keywordflow">not</span> _GPIO.input(3))</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> _gpio_bench_do</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">## Constructor</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">#  Initializes the whole GPIO header as output.</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">#  @param self the object pointer</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classfloppi_1_1rpi_1_1GPIO.html#a0456e5fc79bf6245666a99c6e535acd5">   61</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#a0456e5fc79bf6245666a99c6e535acd5">__init__</a>(self):</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment"># Run GPIO benchmark</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classfloppi_1_1rpi_1_1GPIO.html#ae5d97b58307af8d3b1e612273509e41d">   63</a></span>&#160;        self.<a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#ae5d97b58307af8d3b1e612273509e41d">_gpiodelay</a> = timeit(<span class="stringliteral">&#39;gpio_bench()&#39;</span>, <span class="stringliteral">&#39;from floppi.rpi import GPIO; gpio_bench = GPIO._gpio_bench()&#39;</span>, number=100000) / 100000</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment"># Set GPIO mode to native Broadcom</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        _GPIO.setmode(_GPIO.BOARD)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment"># Setup all pins as output</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">for</span> pin <span class="keywordflow">in</span> self.<a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#ad27b3609853137827119f8d19ca1b956">_gpios</a>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            _GPIO.setup(pin, _GPIO.OUT)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">## Set a selected pin high, by native board pin number</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">#  @param self the object pointer</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">#  @param pin the native number of the pin to set</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">#  @throws NoSuchGPIO if the selected pin is not a GPIO pin</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classfloppi_1_1rpi_1_1GPIO.html#a65e9ca09cd6a795ad9944a409a915c32">   78</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#a65e9ca09cd6a795ad9944a409a915c32">high</a>(self, pin):</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">if</span> pin <span class="keywordflow">in</span> self.<a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#ad27b3609853137827119f8d19ca1b956">_gpios</a>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            _GPIO.output(pin, _GPIO.HIGH)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classfloppi_1_1rpi_1_1NoSuchGPIO.html">NoSuchGPIO</a>(<span class="stringliteral">&quot;Pin %d is not a GPIO pin.&quot;</span> % pin)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">## Set a selected pin low, by native board pin number</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">#  @param self the object pointer</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">#  @param pin the native number of the pin to set</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">#  @throws NoSuchGPIO if the selected pin is not a GPIO pin</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classfloppi_1_1rpi_1_1GPIO.html#a1a373b6bff299aa88010c20028daeef0">   90</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#a1a373b6bff299aa88010c20028daeef0">low</a>(self, pin):</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">if</span> pin <span class="keywordflow">in</span> self.<a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#ad27b3609853137827119f8d19ca1b956">_gpios</a>:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            _GPIO.output(pin, _GPIO.LOW)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classfloppi_1_1rpi_1_1NoSuchGPIO.html">NoSuchGPIO</a>(<span class="stringliteral">&quot;Pin %d is not a GPIO pin.&quot;</span> % pin)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">## Set a selected pin low if it was high, and high if it was low.</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">#  This method looks at the reported state of the pin.</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">#  @param self the object pointer</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">#  @param pin the native number of the pin to set</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">#</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">#  @throws NoSuchGPIO if the selected pin is not a GPIO pin</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classfloppi_1_1rpi_1_1GPIO.html#a7ce1313d2fb51ebf4790c2918c342269">  104</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#a7ce1313d2fb51ebf4790c2918c342269">toggle</a>(self, pin):</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">if</span> pin <span class="keywordflow">in</span> self.<a class="code" href="classfloppi_1_1rpi_1_1GPIO.html#ad27b3609853137827119f8d19ca1b956">_gpios</a>:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            _GPIO.output(pin, <span class="keywordflow">not</span> _GPIO.input(pin))</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classfloppi_1_1rpi_1_1NoSuchGPIO.html">NoSuchGPIO</a>(<span class="stringliteral">&quot;Pin %d is not a GPIO pin.&quot;</span> % pin)</div>
 <div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html">floppi.rpi.GPIO</a></div><div class="ttdoc">GPIO class, reduced to what we need for Floppi-Music. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00034">rpi.py:34</a></div></div>
 <div class="ttc" id="classfloppi_1_1rpi_1_1NoSuchGPIO_html"><div class="ttname"><a href="classfloppi_1_1rpi_1_1NoSuchGPIO.html">floppi.rpi.NoSuchGPIO</a></div><div class="ttdoc">Exception to be thrown when trying to control a non-GPIO pin. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00030">rpi.py:30</a></div></div>
-<div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html_ae5d97b58307af8d3b1e612273509e41d"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html#ae5d97b58307af8d3b1e612273509e41d">floppi.rpi.GPIO._gpiodelay</a></div><div class="ttdeci">_gpiodelay</div><div class="ttdoc">Measured delay for GPIO toggling. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00062">rpi.py:62</a></div></div>
+<div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html_ae5d97b58307af8d3b1e612273509e41d"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html#ae5d97b58307af8d3b1e612273509e41d">floppi.rpi.GPIO._gpiodelay</a></div><div class="ttdeci">_gpiodelay</div><div class="ttdoc">Measured delay for GPIO toggling. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00063">rpi.py:63</a></div></div>
 <div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html_ad27b3609853137827119f8d19ca1b956"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html#ad27b3609853137827119f8d19ca1b956">floppi.rpi.GPIO._gpios</a></div><div class="ttdeci">tuple _gpios</div><div class="ttdoc">All pins that are GPIO pins. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00037">rpi.py:37</a></div></div>
-<div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html_a0456e5fc79bf6245666a99c6e535acd5"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html#a0456e5fc79bf6245666a99c6e535acd5">floppi.rpi.GPIO.__init__</a></div><div class="ttdeci">def __init__</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00060">rpi.py:60</a></div></div>
-<div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html_a7ce1313d2fb51ebf4790c2918c342269"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html#a7ce1313d2fb51ebf4790c2918c342269">floppi.rpi.GPIO.toggle</a></div><div class="ttdeci">def toggle</div><div class="ttdoc">Set a selected pin low if it was high, and high if it was low. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00103">rpi.py:103</a></div></div>
-<div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html_a65e9ca09cd6a795ad9944a409a915c32"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html#a65e9ca09cd6a795ad9944a409a915c32">floppi.rpi.GPIO.high</a></div><div class="ttdeci">def high</div><div class="ttdoc">Set a selected pin high, by native board pin number. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00077">rpi.py:77</a></div></div>
+<div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html_a0456e5fc79bf6245666a99c6e535acd5"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html#a0456e5fc79bf6245666a99c6e535acd5">floppi.rpi.GPIO.__init__</a></div><div class="ttdeci">def __init__</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00061">rpi.py:61</a></div></div>
+<div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html_a7ce1313d2fb51ebf4790c2918c342269"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html#a7ce1313d2fb51ebf4790c2918c342269">floppi.rpi.GPIO.toggle</a></div><div class="ttdeci">def toggle</div><div class="ttdoc">Set a selected pin low if it was high, and high if it was low. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00104">rpi.py:104</a></div></div>
+<div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html_a65e9ca09cd6a795ad9944a409a915c32"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html#a65e9ca09cd6a795ad9944a409a915c32">floppi.rpi.GPIO.high</a></div><div class="ttdeci">def high</div><div class="ttdoc">Set a selected pin high, by native board pin number. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00078">rpi.py:78</a></div></div>
 <div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html_a1b6ac3ac790f65bc9b3d48fb11233e55"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html#a1b6ac3ac790f65bc9b3d48fb11233e55">floppi.rpi.GPIO._gpio_bench</a></div><div class="ttdeci">def _gpio_bench</div><div class="ttdoc">GPIO benchmark function to pass to timeit. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00046">rpi.py:46</a></div></div>
-<div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html_a1a373b6bff299aa88010c20028daeef0"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html#a1a373b6bff299aa88010c20028daeef0">floppi.rpi.GPIO.low</a></div><div class="ttdeci">def low</div><div class="ttdoc">Set a selected pin low, by native board pin number. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00089">rpi.py:89</a></div></div>
+<div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html_a1a373b6bff299aa88010c20028daeef0"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html#a1a373b6bff299aa88010c20028daeef0">floppi.rpi.GPIO.low</a></div><div class="ttdeci">def low</div><div class="ttdoc">Set a selected pin low, by native board pin number. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00090">rpi.py:90</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 20 2013 22:57:21 for Floppi-Music by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 21 2013 09:35:45 for Floppi-Music by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

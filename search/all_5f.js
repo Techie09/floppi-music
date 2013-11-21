@@ -2,11 +2,11 @@ var searchData=
 [
   ['_5f_5finit_5f_5f',['__init__',['../classfloppi_1_1drive_1_1MusicalFloppy.html#a634c9c2e60770b95698d815072c068a5',1,'floppi.drive.MusicalFloppy.__init__()'],['../classfloppi_1_1drive_1_1MusicalFloppyEngine.html#ad026152ef5231ce85e714d887b9069d9',1,'floppi.drive.MusicalFloppyEngine.__init__()'],['../classfloppi_1_1rpi_1_1GPIO.html#a0456e5fc79bf6245666a99c6e535acd5',1,'floppi.rpi.GPIO.__init__()']]],
   ['_5f_5finit_5f_5f_2epy',['__init__.py',['../____init_____8py.html',1,'']]],
+  ['_5fbanner',['_banner',['../namespacefloppi_1_1cmds.html#ab680f663dd4847a31fe335ca6840e10a',1,'floppi::cmds']]],
   ['_5fdrives',['_drives',['../classfloppi_1_1drive_1_1MusicalFloppyEngine.html#a969834157f2e9743a7712c2be648b906',1,'floppi::drive::MusicalFloppyEngine']]],
   ['_5fengine',['_engine',['../classfloppi_1_1drive_1_1MusicalFloppy.html#a61c28dd646269b147873150796f1f5fa',1,'floppi::drive::MusicalFloppy']]],
   ['_5fexit',['_exit',['../classfloppi_1_1drive_1_1MusicalFloppy.html#a0899755598ec4cb0bc569d151e077701',1,'floppi.drive.MusicalFloppy._exit()'],['../classfloppi_1_1drive_1_1MusicalFloppyEngine.html#afaf749eb6d29132e3e246c2ebee3a902',1,'floppi.drive.MusicalFloppyEngine._exit()']]],
   ['_5ffinished',['_finished',['../classfloppi_1_1drive_1_1MusicalFloppyEngine.html#ab9d58f08f302f10fbba4b83ffd5245b6',1,'floppi::drive::MusicalFloppyEngine']]],
-  ['_5ffreq',['_freq',['../namespacefloppi_1_1music.html#a559b8d5351177cf2e05b2c68c2c5f688',1,'floppi::music']]],
   ['_5fgpio',['_gpio',['../classfloppi_1_1drive_1_1MusicalFloppy.html#a839b2aa5e33d1969d1d5cb25f2a6dc44',1,'floppi::drive::MusicalFloppy']]],
   ['_5fgpio_5fbench',['_gpio_bench',['../classfloppi_1_1rpi_1_1GPIO.html#a1b6ac3ac790f65bc9b3d48fb11233e55',1,'floppi::rpi::GPIO']]],
   ['_5fgpiodelay',['_gpiodelay',['../classfloppi_1_1rpi_1_1GPIO.html#ae5d97b58307af8d3b1e612273509e41d',1,'floppi::rpi::GPIO']]],

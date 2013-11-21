@@ -112,64 +112,102 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"># damage or existence of a defect, except proven that it results out</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"># of said person’s immediate fault when using the work as intended.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">from</span> sys <span class="keyword">import</span> argv</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">from</span> <a class="code" href="namespacefloppi_1_1music.html">floppi.music</a> <span class="keyword">import</span> get_music_parser</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">from</span> <a class="code" href="namespacefloppi_1_1drive.html">floppi.drive</a> <span class="keyword">import</span> MusicalFloppyEngine</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">from</span> <a class="code" href="namespacefloppi_1_1rpi.html">floppi.rpi</a> <span class="keyword">import</span> GPIO</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">from</span> <a class="code" href="namespacefloppi_1_1config.html">floppi.config</a> <span class="keyword">import</span> drives</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">## Entry point for playing a single file</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">#  The function will determine the file type, parse it with the</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">#  correct parser and then hand the result off to a MusicalFloppyEngine.</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">#  TODO: Print metadata</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">#  TODO: Multiple files</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">#  @return 0 on success, &gt;0 on error</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespacefloppi_1_1cmds.html#ac3b2ea281f876f7cedd5288e27bb234a">   39</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacefloppi_1_1cmds.html#ac3b2ea281f876f7cedd5288e27bb234a">play</a>():</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">def </span>usage():</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        print(<span class="stringliteral">&quot;Usage: %s PATH&quot;</span> % argv[0])</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        print(<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        print(<span class="stringliteral">&quot;   PATH      -    Path to the file to play&quot;</span>)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span> len(argv) != 2:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        usage()</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> 1</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment"># Find parser and call it</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    parser = <a class="code" href="namespacefloppi_1_1music.html#aa0329722848fd5bfdb392b444046aaa5">get_music_parser</a>(argv[1])</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    voices = parser(argv[1])</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment"># Start engine</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    engine = <a class="code" href="classfloppi_1_1drive_1_1MusicalFloppyEngine.html">MusicalFloppyEngine</a>(<a class="code" href="classfloppi_1_1rpi_1_1GPIO.html">GPIO</a>(), drives)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    engine.start()</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment"># Enqueue playback</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    engine.play(voices)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment"># Wait for engine to get finished or Ctrl-C</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">while</span> engine <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            engine.join(1)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">except</span> KeyboardInterrupt:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            engine.stop()</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            engine.join()</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            engine = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> 0</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">import</span> argparse</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">import</span> pkg_resources</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">from</span> sys <span class="keyword">import</span> stderr</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">from</span> <a class="code" href="namespacefloppi_1_1music.html">floppi.music</a> <span class="keyword">import</span> get_music_parser</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">from</span> <a class="code" href="namespacefloppi_1_1drive.html">floppi.drive</a> <span class="keyword">import</span> MusicalFloppyEngine</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">from</span> <a class="code" href="namespacefloppi_1_1rpi.html">floppi.rpi</a> <span class="keyword">import</span> GPIO</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">from</span> <a class="code" href="namespacefloppi_1_1config.html">floppi.config</a> <span class="keyword">import</span> drives</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"># Banner content for all commands</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespacefloppi_1_1cmds.html#ab680f663dd4847a31fe335ca6840e10a">   33</a></span>&#160;_banner= [</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;          <span class="stringliteral">&quot;Copyright (c) 2013, Dominik George &lt;nik@naturalnet.de&gt;&quot;</span>,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;          <span class="stringliteral">&quot;              2013, Eike Tim Jesinghaus &lt;eike@naturalnet.de&gt;&quot;</span>,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;          <span class="stringliteral">&quot;Published under The MirOS Licence&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;         ]</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">## Entry point for playing a single file</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">#</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">#  The function will determine the file type, parse it with the</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">#  correct parser and then hand the result off to a MusicalFloppyEngine.</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">#</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">#  TODO: Multiple files</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">#</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">#  @return 0 on success, &gt;0 on error</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespacefloppi_1_1cmds.html#ac3b2ea281f876f7cedd5288e27bb234a">   47</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacefloppi_1_1cmds.html#ac3b2ea281f876f7cedd5288e27bb234a">play</a>():</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment"># Parse arguments</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    aparser = argparse.ArgumentParser()</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    aparser.add_argument(<span class="stringliteral">&quot;path&quot;</span>, help=<span class="stringliteral">&quot;path to the file to play&quot;</span>)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    aparser.add_argument(<span class="stringliteral">&quot;-q&quot;</span>, <span class="stringliteral">&quot;--quiet&quot;</span>, help=<span class="stringliteral">&quot;suppress status, metadata and other output to stderr&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    args = aparser.parse_args()</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment"># Print banner</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> args.quiet:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        pkg = pkg_resources.require(<span class="stringliteral">&quot;Floppi-Music&quot;</span>)[0]</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        stderr.write(<span class="stringliteral">&quot;Floppi-Music File Player v%s\n&quot;</span> % pkg.version)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">for</span> l <span class="keywordflow">in</span> _banner:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            stderr.write(<span class="stringliteral">&quot;%s\n&quot;</span> % l)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        stderr.write(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        stderr.write(<span class="stringliteral">&quot;Playing file: %s\n&quot;</span> % args.path)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment"># Find parsers and call it</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        parser, mparser = <a class="code" href="namespacefloppi_1_1music.html#aa0329722848fd5bfdb392b444046aaa5">get_music_parser</a>(args.path)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> args.quiet:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            stderr.write(<span class="stringliteral">&quot;Trying parser: %s\n&quot;</span> % parser.__name__)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">except</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        stderr.write(<span class="stringliteral">&quot;\nNo parser found!\n&quot;</span>)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> 1</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    meta = mparser(args.path)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    voices = parser(args.path)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">except</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        stderr.write(<span class="stringliteral">&quot;\nFailed to parse with %s!\n&quot;</span> % parser.__name__)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> 2</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment"># Print metadata if not quiet</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> args.quiet:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        stderr.write(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">for</span> k <span class="keywordflow">in</span> meta:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            stderr.write(<span class="stringliteral">&quot;%s:\t%s\n&quot;</span> % (k.capitalize(), meta[k]))</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment"># Start engine</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    engine = <a class="code" href="classfloppi_1_1drive_1_1MusicalFloppyEngine.html">MusicalFloppyEngine</a>(<a class="code" href="classfloppi_1_1rpi_1_1GPIO.html">GPIO</a>(), drives)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    engine.start()</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment"># Enqueue playback</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    engine.play(voices)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment"># Playback time counter</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    ptime = 0</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment"># Wait for engine to get finished or Ctrl-C</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">while</span> engine <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            print(<span class="stringliteral">&quot;Playback time: {0:02d}:{1:02.2f} / {2:02d}:{3:02.2f}\r&quot;</span>.format(int(ptime / 60), ptime % 60, int(meta[<span class="stringliteral">&quot;duration&quot;</span>] / 60), meta[<span class="stringliteral">&quot;duration&quot;</span>] % 60)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            engine.join(1)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            ptime += 1</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">except</span> KeyboardInterrupt:</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            sys.stderr.write(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            engine.stop()</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            engine.join()</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            engine = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> 0</div>
 <div class="ttc" id="classfloppi_1_1rpi_1_1GPIO_html"><div class="ttname"><a href="classfloppi_1_1rpi_1_1GPIO.html">floppi.rpi.GPIO</a></div><div class="ttdoc">GPIO class, reduced to what we need for Floppi-Music. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00034">rpi.py:34</a></div></div>
 <div class="ttc" id="namespacefloppi_1_1rpi_html"><div class="ttname"><a href="namespacefloppi_1_1rpi.html">floppi.rpi</a></div><div class="ttdoc">Wrapper for RPi.GPIO, reduced to what we need. </div><div class="ttdef"><b>Definition:</b> <a href="rpi_8py_source.html#l00001">rpi.py:1</a></div></div>
 <div class="ttc" id="classfloppi_1_1drive_1_1MusicalFloppyEngine_html"><div class="ttname"><a href="classfloppi_1_1drive_1_1MusicalFloppyEngine.html">floppi.drive.MusicalFloppyEngine</a></div><div class="ttdef"><b>Definition:</b> <a href="drive_8py_source.html#l00184">drive.py:184</a></div></div>
-<div class="ttc" id="namespacefloppi_1_1cmds_html_ac3b2ea281f876f7cedd5288e27bb234a"><div class="ttname"><a href="namespacefloppi_1_1cmds.html#ac3b2ea281f876f7cedd5288e27bb234a">floppi.cmds.play</a></div><div class="ttdeci">def play</div><div class="ttdoc">Entry point for playing a single file. </div><div class="ttdef"><b>Definition:</b> <a href="cmds_8py_source.html#l00039">cmds.py:39</a></div></div>
+<div class="ttc" id="namespacefloppi_1_1cmds_html_ac3b2ea281f876f7cedd5288e27bb234a"><div class="ttname"><a href="namespacefloppi_1_1cmds.html#ac3b2ea281f876f7cedd5288e27bb234a">floppi.cmds.play</a></div><div class="ttdeci">def play</div><div class="ttdoc">Entry point for playing a single file. </div><div class="ttdef"><b>Definition:</b> <a href="cmds_8py_source.html#l00047">cmds.py:47</a></div></div>
 <div class="ttc" id="namespacefloppi_1_1drive_html"><div class="ttname"><a href="namespacefloppi_1_1drive.html">floppi.drive</a></div><div class="ttdoc">Code to control a floppy drive for floppy music and an engine of musical floppy drives. </div><div class="ttdef"><b>Definition:</b> <a href="drive_8py_source.html#l00001">drive.py:1</a></div></div>
-<div class="ttc" id="namespacefloppi_1_1music_html_aa0329722848fd5bfdb392b444046aaa5"><div class="ttname"><a href="namespacefloppi_1_1music.html#aa0329722848fd5bfdb392b444046aaa5">floppi.music.get_music_parser</a></div><div class="ttdeci">def get_music_parser</div><div class="ttdoc">Determine the function to use to parse a given input file. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00324">music.py:324</a></div></div>
+<div class="ttc" id="namespacefloppi_1_1music_html_aa0329722848fd5bfdb392b444046aaa5"><div class="ttname"><a href="namespacefloppi_1_1music.html#aa0329722848fd5bfdb392b444046aaa5">floppi.music.get_music_parser</a></div><div class="ttdeci">def get_music_parser</div><div class="ttdoc">Determine the function to use to parse a given input file. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00373">music.py:373</a></div></div>
 <div class="ttc" id="namespacefloppi_1_1music_html"><div class="ttname"><a href="namespacefloppi_1_1music.html">floppi.music</a></div><div class="ttdoc">Functions and code to parse various input formats into (frequency, duration) tuples for floppi...</div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00001">music.py:1</a></div></div>
 <div class="ttc" id="namespacefloppi_1_1config_html"><div class="ttname"><a href="namespacefloppi_1_1config.html">floppi.config</a></div><div class="ttdoc">Handles configuration of the floppy music engine. </div><div class="ttdef"><b>Definition:</b> <a href="config_8py_source.html#l00001">config.py:1</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 20 2013 22:57:21 for Floppi-Music by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 21 2013 09:35:45 for Floppi-Music by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -99,27 +99,70 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a5cabc362d5c1075c48f15b1be69f0cd9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#a5cabc362d5c1075c48f15b1be69f0cd9">estimate_duration</a></td></tr>
+<tr class="memdesc:a5cabc362d5c1075c48f15b1be69f0cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate playback length of a list of (frequency, duration) tuples.  <a href="#a5cabc362d5c1075c48f15b1be69f0cd9">More...</a><br/></td></tr>
+<tr class="separator:a5cabc362d5c1075c48f15b1be69f0cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e8a2c9e13e1a4487eb1fd7633397207"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#a8e8a2c9e13e1a4487eb1fd7633397207">mml</a></td></tr>
 <tr class="memdesc:a8e8a2c9e13e1a4487eb1fd7633397207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a string in the "music macro language".  <a href="#a8e8a2c9e13e1a4487eb1fd7633397207">More...</a><br/></td></tr>
 <tr class="separator:a8e8a2c9e13e1a4487eb1fd7633397207"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a7af9d96915fc06108a1d3fd71d0428"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#a7a7af9d96915fc06108a1d3fd71d0428">mml_file</a></td></tr>
 <tr class="memdesc:a7a7af9d96915fc06108a1d3fd71d0428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a file in the music macro language.  <a href="#a7a7af9d96915fc06108a1d3fd71d0428">More...</a><br/></td></tr>
 <tr class="separator:a7a7af9d96915fc06108a1d3fd71d0428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2e737e813faff0bc0f56c3a398c9491"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#ae2e737e813faff0bc0f56c3a398c9491">mml_file_meta</a></td></tr>
+<tr class="memdesc:ae2e737e813faff0bc0f56c3a398c9491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a file in the music macro language and return metadata.  <a href="#ae2e737e813faff0bc0f56c3a398c9491">More...</a><br/></td></tr>
+<tr class="separator:ae2e737e813faff0bc0f56c3a398c9491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0329722848fd5bfdb392b444046aaa5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#aa0329722848fd5bfdb392b444046aaa5">get_music_parser</a></td></tr>
 <tr class="memdesc:aa0329722848fd5bfdb392b444046aaa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine the function to use to parse a given input file.  <a href="#aa0329722848fd5bfdb392b444046aaa5">More...</a><br/></td></tr>
 <tr class="separator:aa0329722848fd5bfdb392b444046aaa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a644f7fe958544b6e9811534a0d54f0e1"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#a644f7fe958544b6e9811534a0d54f0e1">_notes</a> = []</td></tr>
+<tr class="memitem:a644f7fe958544b6e9811534a0d54f0e1"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#a644f7fe958544b6e9811534a0d54f0e1">_notes</a> = [440 * pow(pow(2, 1.0/12), n-58) for n in xrange(1, 85)]</td></tr>
+<tr class="memdesc:a644f7fe958544b6e9811534a0d54f0e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pre-calculated note frequencies.  <a href="#a644f7fe958544b6e9811534a0d54f0e1">More...</a><br/></td></tr>
 <tr class="separator:a644f7fe958544b6e9811534a0d54f0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a559b8d5351177cf2e05b2c68c2c5f688"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#a559b8d5351177cf2e05b2c68c2c5f688">_freq</a> = 16.35</td></tr>
-<tr class="separator:a559b8d5351177cf2e05b2c68c2c5f688"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions and code to parse various input formats into (frequency, duration) tuples for <a class="el" href="classfloppi_1_1drive_1_1MusicalFloppy.html#abb18c9d25ee4abc1235ac64523d03df7" title="Play a certain frequency, for duration seconds. ">floppi.drive.MusicalFloppy.tone</a> . </p>
 <p>All functions take different input formats, but return a list of (frequency, duration) tuples, suitable for passing to <a class="el" href="classfloppi_1_1drive_1_1MusicalFloppy.html#a808395b1a91cf369f10987feb8950a44" title="Add a tone to the play queue. ">floppi.drive.MusicalFloppy.play</a> . </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a5cabc362d5c1075c48f15b1be69f0cd9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def floppi.music.estimate_duration </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>track</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate playback length of a list of (frequency, duration) tuples. </p>
+<p>This function looks at all the tuples in a playback list and estimates the playback duration by adding up the durations.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">track</td><td>the track list </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the estimated duration in seconds </dd></dl>
+
+<p>Definition at line <a class="el" href="music_8py_source.html#l00042">42</a> of file <a class="el" href="music_8py_source.html">music.py</a>.</p>
+
+<p>Referenced by <a class="el" href="music_8py_source.html#l00328">floppi.music.mml_file_meta()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespacefloppi_1_1music.html#a5cabc362d5c1075c48f15b1be69f0cd9">   42</a></span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">def </span><a class="code" href="namespacefloppi_1_1music.html#a5cabc362d5c1075c48f15b1be69f0cd9">estimate_duration</a>(track):</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment"># Remove all non-tuples from the list; integer 1 is abused by mml_parse</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment"># for syncmarks; extract second entries of tuples and add them up and</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment"># return the result, all in one list comprehension -- I ❤ Python!</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> sum([x[1] <span class="keywordflow">for</span> x <span class="keywordflow">in</span> track <span class="keywordflow">if</span> type(x) <span class="keywordflow">is</span> tuple])</div>
+</div>
+<div class="ttc" id="namespacefloppi_1_1music_html_a5cabc362d5c1075c48f15b1be69f0cd9"><div class="ttname"><a href="namespacefloppi_1_1music.html#a5cabc362d5c1075c48f15b1be69f0cd9">floppi.music.estimate_duration</a></div><div class="ttdeci">def estimate_duration</div><div class="ttdoc">Calculate playback length of a list of (frequency, duration) tuples. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00042">music.py:42</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="aa0329722848fd5bfdb392b444046aaa5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -136,24 +179,22 @@ Variables</h2></td></tr>
 
 <p>Determine the function to use to parse a given input file. </p>
 <p>This function is quite dumb right now and only uses the filename extension.</p>
-<p>This function only returns a reference to the function to use for parsing the file in question. Use code like this to parse an arbitrary file:</p>
-<p>get_music_parser(path)(path)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>the path to the file to analyze </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a reference to the function to use for parsing </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>a tuple of parser and metadata parser </dd></dl>
 
-<p>Definition at line <a class="el" href="music_8py_source.html#l00324">324</a> of file <a class="el" href="music_8py_source.html">music.py</a>.</p>
+<p>Definition at line <a class="el" href="music_8py_source.html#l00373">373</a> of file <a class="el" href="music_8py_source.html">music.py</a>.</p>
 
-<p>Referenced by <a class="el" href="cmds_8py_source.html#l00039">floppi.cmds.play()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00324"></a><span class="lineno"><a class="line" href="namespacefloppi_1_1music.html#aa0329722848fd5bfdb392b444046aaa5">  324</a></span>&#160;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="keyword">def </span><a class="code" href="namespacefloppi_1_1music.html#aa0329722848fd5bfdb392b444046aaa5">get_music_parser</a>(path):</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordflow">if</span> path.endswith(<span class="stringliteral">&quot;.mml&quot;</span>):</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keywordflow">return</span> mml_file</div>
-<div class="ttc" id="namespacefloppi_1_1music_html_aa0329722848fd5bfdb392b444046aaa5"><div class="ttname"><a href="namespacefloppi_1_1music.html#aa0329722848fd5bfdb392b444046aaa5">floppi.music.get_music_parser</a></div><div class="ttdeci">def get_music_parser</div><div class="ttdoc">Determine the function to use to parse a given input file. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00324">music.py:324</a></div></div>
+<p>Referenced by <a class="el" href="cmds_8py_source.html#l00047">floppi.cmds.play()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00373"></a><span class="lineno"><a class="line" href="namespacefloppi_1_1music.html#aa0329722848fd5bfdb392b444046aaa5">  373</a></span>&#160;</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="keyword">def </span><a class="code" href="namespacefloppi_1_1music.html#aa0329722848fd5bfdb392b444046aaa5">get_music_parser</a>(path):</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordflow">if</span> path.endswith(<span class="stringliteral">&quot;.mml&quot;</span>):</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <span class="keywordflow">return</span> (mml_file, mml_file_meta)</div>
+<div class="ttc" id="namespacefloppi_1_1music_html_aa0329722848fd5bfdb392b444046aaa5"><div class="ttname"><a href="namespacefloppi_1_1music.html#aa0329722848fd5bfdb392b444046aaa5">floppi.music.get_music_parser</a></div><div class="ttdeci">def get_music_parser</div><div class="ttdoc">Determine the function to use to parse a given input file. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00373">music.py:373</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -213,149 +254,149 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a list of (frequency, duration) tuples </dd></dl>
 
-<p>Definition at line <a class="el" href="music_8py_source.html#l00130">130</a> of file <a class="el" href="music_8py_source.html">music.py</a>.</p>
+<p>Definition at line <a class="el" href="music_8py_source.html#l00140">140</a> of file <a class="el" href="music_8py_source.html">music.py</a>.</p>
 
-<p>Referenced by <a class="el" href="music_8py_source.html#l00290">floppi.music.mml_file()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="namespacefloppi_1_1music.html#a8e8a2c9e13e1a4487eb1fd7633397207">  130</a></span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keyword">def </span><a class="code" href="namespacefloppi_1_1music.html#a8e8a2c9e13e1a4487eb1fd7633397207">mml</a>(macro):</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    res = []</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="comment"># State machine variables</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    bpm = 120</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    current_c = 48</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    part = 7.0/8</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    length = 4</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    oswitch = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="comment"># Normalize macro string</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    macro = macro.upper()</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    macro = macro.replace(<span class="stringliteral">&quot; &quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    macro = list(macro)</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">while</span> macro:</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        char = macro.pop(0)</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordflow">if</span> char <span class="keywordflow">in</span> (<span class="stringliteral">&quot;C&quot;</span>, <span class="stringliteral">&quot;D&quot;</span>, <span class="stringliteral">&quot;E&quot;</span>, <span class="stringliteral">&quot;F&quot;</span>, <span class="stringliteral">&quot;G&quot;</span>, <span class="stringliteral">&quot;A&quot;</span>, <span class="stringliteral">&quot;B&quot;</span>):</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <span class="keywordflow">if</span> char == <span class="stringliteral">&quot;C&quot;</span>:</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                note = current_c</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;D&quot;</span>:</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                note = current_c + 2</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;E&quot;</span>:</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                note = current_c + 4</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;F&quot;</span>:</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                note = current_c + 5</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;G&quot;</span>:</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                note = current_c + 7</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;A&quot;</span>:</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                note = current_c + 9</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;B&quot;</span>:</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                note = current_c + 11</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            <span class="keywordflow">if</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> (<span class="stringliteral">&quot;#&quot;</span>, <span class="stringliteral">&quot;+&quot;</span>):</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                note += 1</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                macro.pop(0)</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            <span class="keywordflow">elif</span> macro <span class="keywordflow">and</span> macro[0] == <span class="stringliteral">&quot;-&quot;</span>:</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                note -= 1</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                macro.pop(0)</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            n = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> [str(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(10)]:</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                n += macro.pop(0)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            _length = length</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            <span class="keywordflow">if</span> n:</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                _length = int(n)</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] == <span class="stringliteral">&quot;.&quot;</span>:</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                macro.pop(0)</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                _length /= 1.5</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            duration = ((60.0 / bpm) * 4) / _length</div>
+<p>Referenced by <a class="el" href="music_8py_source.html#l00300">floppi.music.mml_file()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="namespacefloppi_1_1music.html#a8e8a2c9e13e1a4487eb1fd7633397207">  140</a></span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keyword">def </span><a class="code" href="namespacefloppi_1_1music.html#a8e8a2c9e13e1a4487eb1fd7633397207">mml</a>(macro):</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    res = []</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="comment"># State machine variables</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    bpm = 120</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    current_c = 48</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    part = 7.0/8</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    length = 4</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    oswitch = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment"># Normalize macro string</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    macro = macro.upper()</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    macro = macro.replace(<span class="stringliteral">&quot; &quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    macro = list(macro)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">while</span> macro:</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        char = macro.pop(0)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">if</span> char <span class="keywordflow">in</span> (<span class="stringliteral">&quot;C&quot;</span>, <span class="stringliteral">&quot;D&quot;</span>, <span class="stringliteral">&quot;E&quot;</span>, <span class="stringliteral">&quot;F&quot;</span>, <span class="stringliteral">&quot;G&quot;</span>, <span class="stringliteral">&quot;A&quot;</span>, <span class="stringliteral">&quot;B&quot;</span>):</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <span class="keywordflow">if</span> char == <span class="stringliteral">&quot;C&quot;</span>:</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                note = current_c</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;D&quot;</span>:</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                note = current_c + 2</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;E&quot;</span>:</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                note = current_c + 4</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;F&quot;</span>:</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                note = current_c + 5</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;G&quot;</span>:</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                note = current_c + 7</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;A&quot;</span>:</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                note = current_c + 9</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;B&quot;</span>:</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                note = current_c + 11</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <span class="keywordflow">if</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> (<span class="stringliteral">&quot;#&quot;</span>, <span class="stringliteral">&quot;+&quot;</span>):</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                note += 1</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                macro.pop(0)</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <span class="keywordflow">elif</span> macro <span class="keywordflow">and</span> macro[0] == <span class="stringliteral">&quot;-&quot;</span>:</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                note -= 1</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                macro.pop(0)</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            n = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> [str(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(10)]:</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                n += macro.pop(0)</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keywordflow">if</span> oswitch == <span class="stringliteral">&quot;&lt;&quot;</span>:</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                note -= 12</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keywordflow">elif</span> oswitch == <span class="stringliteral">&quot;&gt;&quot;</span>:</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                note += 12</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            oswitch = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            res.append((_notes[note], duration * part))</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            res.append((0, duration - duration * part))</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;O&quot;</span>:</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            n = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> [str(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(10)]:</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                n += macro.pop(0)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> n:</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                n = 4</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            _length = length</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keywordflow">if</span> n:</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                _length = int(n)</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] == <span class="stringliteral">&quot;.&quot;</span>:</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                macro.pop(0)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                _length /= 1.5</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            duration = ((60.0 / bpm) * 4) / _length</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <span class="keywordflow">if</span> oswitch == <span class="stringliteral">&quot;&lt;&quot;</span>:</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                note -= 12</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="keywordflow">elif</span> oswitch == <span class="stringliteral">&quot;&gt;&quot;</span>:</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                note += 12</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            oswitch = <span class="stringliteral">&quot;&quot;</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            current_c = int(n) * 12</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;T&quot;</span>:</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            n = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> [str(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(10)]:</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                n += macro.pop(0)</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> n:</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                n = 120</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            bpm = int(n)</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;L&quot;</span>:</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            n = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> [str(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(10)]:</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                n += macro.pop(0)</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> n:</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                n = 4</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            length = int(n)</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;N&quot;</span>:</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            n = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> [str(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(10)]:</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                n += macro.pop(0)</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> n:</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                n = 0</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            note = int(n) - 1</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            duration = ((60.0 / bpm) * 4) / length</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            <span class="keywordflow">if</span> note &gt; -1:</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                res.append((_notes[note], duration * part))</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                res.append((0, duration - duration * part))</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                res.append((0, duration))</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;P&quot;</span>:</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            n = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> [str(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(10)]:</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                n += macro.pop(0)</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            res.append((_notes[note], duration * part))</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            res.append((0, duration - duration * part))</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;O&quot;</span>:</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            n = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> [str(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(10)]:</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                n += macro.pop(0)</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> n:</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                n = 4</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            current_c = int(n) * 12</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;T&quot;</span>:</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            n = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> [str(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(10)]:</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                n += macro.pop(0)</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> n:</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                n = 120</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            bpm = int(n)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;L&quot;</span>:</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            n = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> [str(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(10)]:</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                n += macro.pop(0)</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> n:</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                n = 4</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            length = int(n)</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;N&quot;</span>:</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            n = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> [str(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(10)]:</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                n += macro.pop(0)</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> n:</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                n = 0</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            note = int(n) - 1</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            duration = ((60.0 / bpm) * 4) / length</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> n:</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                n = length</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] == <span class="stringliteral">&quot;.&quot;</span>:</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                macro.pop(0)</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                n /= 1.5</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            duration = ((60.0 / bpm) * 4) / int(n)</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            res.append((0, duration))</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;M&quot;</span>:</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            mode = macro.pop(0)</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            <span class="keywordflow">if</span> note &gt; -1:</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                res.append((_notes[note], duration * part))</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                res.append((0, duration - duration * part))</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                res.append((0, duration))</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;P&quot;</span>:</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            n = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] <span class="keywordflow">in</span> [str(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> range(10)]:</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                n += macro.pop(0)</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> n:</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                n = length</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            <span class="keywordflow">if</span> mode == <span class="stringliteral">&quot;N&quot;</span>:</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                part = 7.0/8</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="keywordflow">elif</span> mode == <span class="stringliteral">&quot;S&quot;</span>:</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                part = 3.0/4</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            <span class="keywordflow">elif</span> mode == <span class="stringliteral">&quot;L&quot;</span>:</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                part = 1.0</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        <span class="keywordflow">elif</span> char <span class="keywordflow">in</span> (<span class="stringliteral">&quot;&lt;&quot;</span>, <span class="stringliteral">&quot;&gt;&quot;</span>):</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            oswitch = char</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;|&quot;</span>:</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            res.append(1)</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordflow">return</span> res</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            <span class="keywordflow">while</span> macro <span class="keywordflow">and</span> macro[0] == <span class="stringliteral">&quot;.&quot;</span>:</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                macro.pop(0)</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                n /= 1.5</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            duration = ((60.0 / bpm) * 4) / int(n)</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            res.append((0, duration))</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;M&quot;</span>:</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            mode = macro.pop(0)</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            <span class="keywordflow">if</span> mode == <span class="stringliteral">&quot;N&quot;</span>:</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                part = 7.0/8</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keywordflow">elif</span> mode == <span class="stringliteral">&quot;S&quot;</span>:</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                part = 3.0/4</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <span class="keywordflow">elif</span> mode == <span class="stringliteral">&quot;L&quot;</span>:</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                part = 1.0</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        <span class="keywordflow">elif</span> char <span class="keywordflow">in</span> (<span class="stringliteral">&quot;&lt;&quot;</span>, <span class="stringliteral">&quot;&gt;&quot;</span>):</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            oswitch = char</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="keywordflow">elif</span> char == <span class="stringliteral">&quot;|&quot;</span>:</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            res.append(1)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">return</span> res</div>
 </div>
-<div class="ttc" id="namespacefloppi_1_1music_html_a8e8a2c9e13e1a4487eb1fd7633397207"><div class="ttname"><a href="namespacefloppi_1_1music.html#a8e8a2c9e13e1a4487eb1fd7633397207">floppi.music.mml</a></div><div class="ttdeci">def mml</div><div class="ttdoc">Parse a string in the &amp;quot;music macro language&amp;quot;. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00130">music.py:130</a></div></div>
+<div class="ttc" id="namespacefloppi_1_1music_html_a8e8a2c9e13e1a4487eb1fd7633397207"><div class="ttname"><a href="namespacefloppi_1_1music.html#a8e8a2c9e13e1a4487eb1fd7633397207">floppi.music.mml</a></div><div class="ttdeci">def mml</div><div class="ttdoc">Parse a string in the &amp;quot;music macro language&amp;quot;. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00140">music.py:140</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -388,69 +429,133 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a list of lists of (frequency, duration) tuples, suitable for passing to the MusicalFloppyEnging </dd></dl>
 
-<p>Definition at line <a class="el" href="music_8py_source.html#l00290">290</a> of file <a class="el" href="music_8py_source.html">music.py</a>.</p>
+<p>Definition at line <a class="el" href="music_8py_source.html#l00300">300</a> of file <a class="el" href="music_8py_source.html">music.py</a>.</p>
 
-<p>References <a class="el" href="music_8py_source.html#l00130">floppi.music.mml()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="namespacefloppi_1_1music.html#a7a7af9d96915fc06108a1d3fd71d0428">  290</a></span>&#160;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="keyword">def </span><a class="code" href="namespacefloppi_1_1music.html#a7a7af9d96915fc06108a1d3fd71d0428">mml_file</a>(path):</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    vstrings = []</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    vlists = []</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    vcount = 0</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    with open(path, <span class="stringliteral">&quot;</span><span class="stringliteral">r&quot;) as f:</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="stringliteral">        </span><span class="keywordflow">for</span> l <span class="keywordflow">in</span> f:</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            <span class="keywordflow">if</span> l.strip().startswith(<span class="stringliteral">&quot;#&quot;</span>):</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            <span class="keywordflow">elif</span> l.strip() == <span class="stringliteral">&quot;&quot;</span>:</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                vcount = 0</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                <span class="keywordflow">if</span> len(vstrings) &lt;= vcount:</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                    vstrings.append(<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                vstrings[vcount] += l.strip()</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordflow">for</span> v <span class="keywordflow">in</span> vstrings:</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        vlists.append(<a class="code" href="namespacefloppi_1_1music.html#a8e8a2c9e13e1a4487eb1fd7633397207">mml</a>(v))</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordflow">return</span> vlists</div>
+<p>References <a class="el" href="music_8py_source.html#l00140">floppi.music.mml()</a>.</p>
+
+<p>Referenced by <a class="el" href="music_8py_source.html#l00328">floppi.music.mml_file_meta()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="namespacefloppi_1_1music.html#a7a7af9d96915fc06108a1d3fd71d0428">  300</a></span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="keyword">def </span><a class="code" href="namespacefloppi_1_1music.html#a7a7af9d96915fc06108a1d3fd71d0428">mml_file</a>(path):</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    vstrings = []</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    vlists = []</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    vcount = 0</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    with open(path, <span class="stringliteral">&quot;</span><span class="stringliteral">r&quot;) as f:</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="stringliteral">        </span><span class="keywordflow">for</span> l <span class="keywordflow">in</span> f:</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            <span class="keywordflow">if</span> l.strip().startswith(<span class="stringliteral">&quot;#&quot;</span>):</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;            <span class="keywordflow">elif</span> l.strip() == <span class="stringliteral">&quot;&quot;</span>:</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                vcount = 0</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                <span class="keywordflow">if</span> len(vstrings) &lt;= vcount:</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                    vstrings.append(<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                vstrings[vcount] += l.strip()</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                vcount += 1</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordflow">for</span> v <span class="keywordflow">in</span> vstrings:</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        vlists.append(<a class="code" href="namespacefloppi_1_1music.html#a8e8a2c9e13e1a4487eb1fd7633397207">mml</a>(v))</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="keywordflow">return</span> vlists</div>
 </div>
-<div class="ttc" id="namespacefloppi_1_1music_html_a7a7af9d96915fc06108a1d3fd71d0428"><div class="ttname"><a href="namespacefloppi_1_1music.html#a7a7af9d96915fc06108a1d3fd71d0428">floppi.music.mml_file</a></div><div class="ttdeci">def mml_file</div><div class="ttdoc">Parse a file in the music macro language. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00290">music.py:290</a></div></div>
-<div class="ttc" id="namespacefloppi_1_1music_html_a8e8a2c9e13e1a4487eb1fd7633397207"><div class="ttname"><a href="namespacefloppi_1_1music.html#a8e8a2c9e13e1a4487eb1fd7633397207">floppi.music.mml</a></div><div class="ttdeci">def mml</div><div class="ttdoc">Parse a string in the &amp;quot;music macro language&amp;quot;. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00130">music.py:130</a></div></div>
+<div class="ttc" id="namespacefloppi_1_1music_html_a7a7af9d96915fc06108a1d3fd71d0428"><div class="ttname"><a href="namespacefloppi_1_1music.html#a7a7af9d96915fc06108a1d3fd71d0428">floppi.music.mml_file</a></div><div class="ttdeci">def mml_file</div><div class="ttdoc">Parse a file in the music macro language. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00300">music.py:300</a></div></div>
+<div class="ttc" id="namespacefloppi_1_1music_html_a8e8a2c9e13e1a4487eb1fd7633397207"><div class="ttname"><a href="namespacefloppi_1_1music.html#a8e8a2c9e13e1a4487eb1fd7633397207">floppi.music.mml</a></div><div class="ttdeci">def mml</div><div class="ttdoc">Parse a string in the &amp;quot;music macro language&amp;quot;. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00140">music.py:140</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a559b8d5351177cf2e05b2c68c2c5f688"></a>
+<a class="anchor" id="ae2e737e813faff0bc0f56c3a398c9491"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">floppi.music._freq = 16.35</td>
+          <td class="memname">def floppi.music.mml_file_meta </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="music_8py_source.html#l00032">32</a> of file <a class="el" href="music_8py_source.html">music.py</a>.</p>
+<p>Parse a file in the music macro language and return metadata. </p>
+<p>The MML file format as used by Floppi-Music is proprietary.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>the path to the MML file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a dictionary of metadata </dd></dl>
 
+<p>Definition at line <a class="el" href="music_8py_source.html#l00328">328</a> of file <a class="el" href="music_8py_source.html">music.py</a>.</p>
+
+<p>References <a class="el" href="music_8py_source.html#l00042">floppi.music.estimate_duration()</a>, and <a class="el" href="music_8py_source.html#l00300">floppi.music.mml_file()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="namespacefloppi_1_1music.html#ae2e737e813faff0bc0f56c3a398c9491">  328</a></span>&#160;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="keyword">def </span><a class="code" href="namespacefloppi_1_1music.html#ae2e737e813faff0bc0f56c3a398c9491">mml_file_meta</a>(path):</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    state = 0</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    vcount = 0</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    meta = {}</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    with open(path, <span class="stringliteral">&quot;</span><span class="stringliteral">r&quot;) as f:</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="stringliteral">        </span><span class="keywordflow">for</span> l <span class="keywordflow">in</span> f:</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            <span class="keywordflow">if</span> state == 0:</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                <span class="comment"># Header fields</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                <span class="keywordflow">if</span> l.strip() == <span class="stringliteral">&quot;&quot;</span>:</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;                    state = 1</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                <span class="keywordflow">elif</span> l.strip().startswith(<span class="stringliteral">&quot;# &quot;</span>) <span class="keywordflow">and</span> <span class="stringliteral">&quot;:&quot;</span> <span class="keywordflow">in</span> l:</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;                    parts = l.strip()[1:].split(<span class="stringliteral">&quot;:&quot;</span>)</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                    key = parts.pop(0)</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                    value = <span class="stringliteral">&quot;:&quot;</span>.join(parts)</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                    meta[key.strip().lower()] = value.strip()</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;            <span class="keywordflow">elif</span> state == 1:</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                <span class="comment"># Skip first space</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> l.strip() == <span class="stringliteral">&quot;&quot;</span>:</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                    state = 2</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            <span class="keywordflow">elif</span> state == 2:</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                vcount += 1</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                <span class="keywordflow">if</span> l.strip() == <span class="stringliteral">&quot;&quot;</span>:</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                    <span class="comment"># Everything of interest has gone</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                    <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="comment"># Add discovered voice count to meta if not explicitly given</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> <span class="stringliteral">&quot;voices&quot;</span> <span class="keywordflow">in</span> meta:</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        meta[<span class="stringliteral">&quot;voices&quot;</span>] = vcount</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="comment"># Estimate duration of tracks and add maximum to meta if not</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="comment"># explicitly given</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> <span class="stringliteral">&quot;duration&quot;</span> <span class="keywordflow">in</span> meta:</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        meta[<span class="stringliteral">&quot;duration&quot;</span>] = max([<a class="code" href="namespacefloppi_1_1music.html#a5cabc362d5c1075c48f15b1be69f0cd9">estimate_duration</a>(x) <span class="keywordflow">for</span> x <span class="keywordflow">in</span> <a class="code" href="namespacefloppi_1_1music.html#a7a7af9d96915fc06108a1d3fd71d0428">mml_file</a>(path)])</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordflow">return</span> meta</div>
+</div>
+<div class="ttc" id="namespacefloppi_1_1music_html_a7a7af9d96915fc06108a1d3fd71d0428"><div class="ttname"><a href="namespacefloppi_1_1music.html#a7a7af9d96915fc06108a1d3fd71d0428">floppi.music.mml_file</a></div><div class="ttdeci">def mml_file</div><div class="ttdoc">Parse a file in the music macro language. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00300">music.py:300</a></div></div>
+<div class="ttc" id="namespacefloppi_1_1music_html_a5cabc362d5c1075c48f15b1be69f0cd9"><div class="ttname"><a href="namespacefloppi_1_1music.html#a5cabc362d5c1075c48f15b1be69f0cd9">floppi.music.estimate_duration</a></div><div class="ttdeci">def estimate_duration</div><div class="ttdoc">Calculate playback length of a list of (frequency, duration) tuples. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00042">music.py:42</a></div></div>
+<div class="ttc" id="namespacefloppi_1_1music_html_ae2e737e813faff0bc0f56c3a398c9491"><div class="ttname"><a href="namespacefloppi_1_1music.html#ae2e737e813faff0bc0f56c3a398c9491">floppi.music.mml_file_meta</a></div><div class="ttdeci">def mml_file_meta</div><div class="ttdoc">Parse a file in the music macro language and return metadata. </div><div class="ttdef"><b>Definition:</b> <a href="music_8py_source.html#l00328">music.py:328</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
+<h2 class="groupheader">Variable Documentation</h2>
 <a class="anchor" id="a644f7fe958544b6e9811534a0d54f0e1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list floppi.music._notes = []</td>
+          <td class="memname">list floppi.music._notes = [440 * pow(pow(2, 1.0/12), n-58) for n in xrange(1, 85)]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="music_8py_source.html#l00031">31</a> of file <a class="el" href="music_8py_source.html">music.py</a>.</p>
+<p>Pre-calculated note frequencies. </p>
+<p>The list comprehension creates a list of 84 frequencies from C0 to B6 </p>
+
+<p>Definition at line <a class="el" href="music_8py_source.html#l00033">33</a> of file <a class="el" href="music_8py_source.html">music.py</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 20 2013 22:57:22 for Floppi-Music by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 21 2013 09:35:45 for Floppi-Music by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -104,27 +104,32 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a5cabc362d5c1075c48f15b1be69f0cd9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#a5cabc362d5c1075c48f15b1be69f0cd9">floppi.music.estimate_duration</a></td></tr>
+<tr class="memdesc:a5cabc362d5c1075c48f15b1be69f0cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate playback length of a list of (frequency, duration) tuples.  <a href="#a5cabc362d5c1075c48f15b1be69f0cd9">More...</a><br/></td></tr>
+<tr class="separator:a5cabc362d5c1075c48f15b1be69f0cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e8a2c9e13e1a4487eb1fd7633397207"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#a8e8a2c9e13e1a4487eb1fd7633397207">floppi.music.mml</a></td></tr>
 <tr class="memdesc:a8e8a2c9e13e1a4487eb1fd7633397207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a string in the "music macro language".  <a href="#a8e8a2c9e13e1a4487eb1fd7633397207">More...</a><br/></td></tr>
 <tr class="separator:a8e8a2c9e13e1a4487eb1fd7633397207"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a7af9d96915fc06108a1d3fd71d0428"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#a7a7af9d96915fc06108a1d3fd71d0428">floppi.music.mml_file</a></td></tr>
 <tr class="memdesc:a7a7af9d96915fc06108a1d3fd71d0428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a file in the music macro language.  <a href="#a7a7af9d96915fc06108a1d3fd71d0428">More...</a><br/></td></tr>
 <tr class="separator:a7a7af9d96915fc06108a1d3fd71d0428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2e737e813faff0bc0f56c3a398c9491"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#ae2e737e813faff0bc0f56c3a398c9491">floppi.music.mml_file_meta</a></td></tr>
+<tr class="memdesc:ae2e737e813faff0bc0f56c3a398c9491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a file in the music macro language and return metadata.  <a href="#ae2e737e813faff0bc0f56c3a398c9491">More...</a><br/></td></tr>
+<tr class="separator:ae2e737e813faff0bc0f56c3a398c9491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0329722848fd5bfdb392b444046aaa5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#aa0329722848fd5bfdb392b444046aaa5">floppi.music.get_music_parser</a></td></tr>
 <tr class="memdesc:aa0329722848fd5bfdb392b444046aaa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine the function to use to parse a given input file.  <a href="#aa0329722848fd5bfdb392b444046aaa5">More...</a><br/></td></tr>
 <tr class="separator:aa0329722848fd5bfdb392b444046aaa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a644f7fe958544b6e9811534a0d54f0e1"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#a644f7fe958544b6e9811534a0d54f0e1">floppi.music._notes</a> = []</td></tr>
+<tr class="memitem:a644f7fe958544b6e9811534a0d54f0e1"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#a644f7fe958544b6e9811534a0d54f0e1">floppi.music._notes</a> = [440 * pow(pow(2, 1.0/12), n-58) for n in xrange(1, 85)]</td></tr>
+<tr class="memdesc:a644f7fe958544b6e9811534a0d54f0e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pre-calculated note frequencies.  <a href="#a644f7fe958544b6e9811534a0d54f0e1">More...</a><br/></td></tr>
 <tr class="separator:a644f7fe958544b6e9811534a0d54f0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a559b8d5351177cf2e05b2c68c2c5f688"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefloppi_1_1music.html#a559b8d5351177cf2e05b2c68c2c5f688">floppi.music._freq</a> = 16.35</td></tr>
-<tr class="separator:a559b8d5351177cf2e05b2c68c2c5f688"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 20 2013 22:57:21 for Floppi-Music by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 21 2013 09:35:45 for Floppi-Music by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>
