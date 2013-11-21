@@ -69,12 +69,12 @@ def play():
         stderr.write("\nNo parser found!\n")
         return 1
 
-#    try:
+    try:
     meta = mparser(args.path)
     voices = parser(args.path)
-#    except:
-#        stderr.write("\nFailed to parse with %s!\n" % parser.__name__)
-#        return 2
+    except:
+        stderr.write("\nFailed to parse with %s!\n" % parser.__name__)
+        return 2
 
     # Print metadata if not quiet
     if not args.quiet:
