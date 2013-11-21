@@ -70,8 +70,8 @@ def play():
         return 1
 
     try:
-    meta = mparser(args.path)
-    voices = parser(args.path)
+        meta = mparser(args.path)
+        voices = parser(args.path)
     except:
         stderr.write("\nFailed to parse with %s!\n" % parser.__name__)
         return 2
@@ -81,6 +81,7 @@ def play():
         stderr.write("\n")
         for k in meta:
             stderr.write("%s:\t%s\n" % (k.capitalize(), meta[k]))
+        stderr.write("\n")
 
     # Start engine
     engine = MusicalFloppyEngine(GPIO(), drives)
@@ -95,11 +96,11 @@ def play():
     # Wait for engine to get finished or Ctrl-C
     while engine is not None:
         try:
-            print("Playback time: {0:02d}:{1:02.2f} / {2:02d}:{3:02.2f}\r".format(int(ptime / 60), ptime % 60, int(meta["duration"] / 60), meta["duration"] % 60)
+            stderr.write("Playback time: {0:02d}:{1:02.2f} / {2:02d}:{3:02.2f}\r".format(int(ptime / 60), ptime % 60, int(meta["duration"] / 60), meta["duration"] % 60))
             engine.join(1)
             ptime += 1
         except KeyboardInterrupt:
-            sys.stderr.write("\n")
+            stderr.write("\n")
             engine.stop()
             engine.join()
             engine = None
