@@ -347,11 +347,19 @@ def mml_file_meta(path):
                 if not l.strip() == "":
                     state = 2
             elif state == 2:
-                if not l.strip() == "":
-                    vcount += 1
-                else:
+                vcount += 1
+                if l.strip() == "":
                     # Everything of interest has gone
                     break
+
+    # Add discovered voice count to meta if not explicitly given
+    if not "voices" in meta:
+        meta["voices"] = vcount
+
+    # Estimate duration of tracks and add maximum to meta if not
+    # explicitly given
+    if not "duration" in meta:
+        meta["duration"] = max([estimate_duration(x) for x in mml_file(path)])
 
     return meta
 

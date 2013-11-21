@@ -41,7 +41,6 @@ _banner= [
 #  The function will determine the file type, parse it with the
 #  correct parser and then hand the result off to a MusicalFloppyEngine.
 #
-#  TODO: Print metadata
 #  TODO: Multiple files
 #
 #  @return 0 on success, >0 on error
