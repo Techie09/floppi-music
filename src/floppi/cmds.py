@@ -89,11 +89,17 @@ def play():
     # Enqueue playback
     engine.play(voices)
 
+    # Playback time counter
+    ptime = 0
+
     # Wait for engine to get finished or Ctrl-C
     while engine is not None:
         try:
+            print("Playback time: {0:02d}:{1:02.2f} / {2:02d}:{3:02.2f}\r".format(int(ptime / 60), ptime % 60, int(meta["duration"] / 60), meta["duration"] % 60)
             engine.join(1)
+            ptime += 1
         except KeyboardInterrupt:
+            sys.stderr.write("\n")
             engine.stop()
             engine.join()
             engine = None
