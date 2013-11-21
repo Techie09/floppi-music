@@ -33,6 +33,12 @@ seperate functions and converted to an internal format suitable for
 playback by the engine. It is easy to create such parsers for any other
 (sensible) file format.
 
+Wiring scheme
+-------------
+
+The wiring scheme for the Raspberry and floppy interfaces can be found
+[here](wiring_8md_source.html).
+
 What works
 ----------
 
