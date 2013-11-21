@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Floppi-Music: Main Page</title>
+<title>Floppi-Music: Related Pages</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -38,8 +38,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -78,52 +78,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Floppi-Music Documentation</div>  </div>
+<div class="title">Related Pages</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>The Floppi-Music project aims at creating a "crazily advanced" floppy music framework for the Raspberry Pi, written in pure Python.</p>
-<h2>Motivation </h2>
-<p>Everyone is doing floppy music these days, and it really gets old and boring. However, Eike badly wanted to try floppy music himself, and of course I wanted to meet his desire. Our plan was to create the floppy music code in pure Python, and we wanted to use the Raspberry Pi to have a lot of high-level interfaces available.</p>
-<p>The final goal is to build a "floppy music jukebox" for presentation at events and conferences.</p>
-<h2>Implementation / design goals </h2>
-<p>Our intention was to break loose from the low-level approach to floppy music controller programming and use modern paradigms in a modern language instead.</p>
-<p>The floppy music engine is entirely multi-threaded, with a playback engine scheduling playback of notes for the various floppy drive threads.</p>
-<p>The framework is designed so it can be easily extended or used as a library. For example, all recognized input formats are parsed by seperate functions and converted to an internal format suitable for playback by the engine. It is easy to create such parsers for any other (sensible) file format.</p>
-<h2>Wiring scheme </h2>
-<p>The wiring scheme for the Raspberry and floppy interfaces can be found <a href="wiring_8md_source.html">here</a>.</p>
-<h2>What works </h2>
-<ul>
-<li>Parsing of MML (Music Macro Language) files</li>
-<li>Playback of 4 (or 8) simultaneous tracks</li>
-<li>floppi-play command to play recognized, single files through the engine</li>
-</ul>
-<h2>What is planned (Roadmap) </h2>
-<ul>
-<li>Parsing of MIDI files</li>
-<li>A webserver to select tracks and manage a playlist</li>
-<li>An mpd-compatible network interface</li>
-<li>Control through an LCD display and buttons on a controller</li>
-<li>Self-tuning of floppy drives</li>
-</ul>
-<h2>Licence </h2>
-<p>All source code and artwork:</p>
-<p>Published under The MirOS Licence.</p>
-<p>Copyright © 2013 Dominik George <a href="#" onclick="location.href='mai'+'lto:'+'nik'+'@n'+'atu'+'ra'+'lne'+'t.'+'de'; return false;">nik@n<span style="display: none;">.nosp@m.</span>atur<span style="display: none;">.nosp@m.</span>alnet<span style="display: none;">.nosp@m.</span>.de</a> Eike Tim Jesinghaus <a href="#" onclick="location.href='mai'+'lto:'+'eik'+'e@'+'nat'+'ur'+'aln'+'et'+'.de'; return false;">eike@<span style="display: none;">.nosp@m.</span>natu<span style="display: none;">.nosp@m.</span>ralne<span style="display: none;">.nosp@m.</span>t.de</a></p>
-<p>The kangaroo in the artwork:</p>
-<p>All rights reserved.</p>
-<p>Copyright © 2012 Carina Salomon <a href="#" onclick="location.href='mai'+'lto:'+'car'+'in'+'a@n'+'at'+'ura'+'ln'+'et.'+'de'; return false;">carin<span style="display: none;">.nosp@m.</span>a@na<span style="display: none;">.nosp@m.</span>tural<span style="display: none;">.nosp@m.</span>net.<span style="display: none;">.nosp@m.</span>de</a></p>
-<h2>Credits </h2>
-<p>Credits go to:</p>
-<ul>
-<li>Felix "theftf" Falk <a href="#" onclick="location.href='mai'+'lto:'+'fel'+'ix'+'@b9'+'d.'+'de'; return false;">felix<span style="display: none;">.nosp@m.</span>@b9d<span style="display: none;">.nosp@m.</span>.de</a>, for the wiring and hardware advice</li>
-<li>Thorsten "mirabilos" Glaser <a href="#" onclick="location.href='mai'+'lto:'+'tg@'+'mi'+'rbs'+'d.'+'de'; return false;">tg@mi<span style="display: none;">.nosp@m.</span>rbsd<span style="display: none;">.nosp@m.</span>.de</a>, for some hints and magically always being right</li>
-</ul>
-<h2>Awards </h2>
-<p>The Floppi-Music project has won the following (more or less serious ;-)) awards:</p>
-<ul>
-<li>"Coolest problem of the friggin' month"-award in #python for "Floppy disk drives being out of tune" </li>
-</ul>
-</div></div><!-- contents -->
+<div class="textblock">Here is a list of all related documentation pages:</div><div class="directory">
+<table class="directory">
+<tr id="row_0_" class="even"><td class="entry"><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><a class="el" href="md_doc_wiring.html" target="_self">wiring</a></td><td class="desc"></td></tr>
+</table>
+</div><!-- directory -->
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Thu Nov 21 2013 09:56:05 for Floppi-Music by &#160;<a href="http://www.doxygen.org/index.html">
