@@ -252,6 +252,8 @@ def mml(macro):
             if not n:
                 n = length
 
+            n = float(n)
+
             while macro and macro[0] == ".":
                 macro.pop(0)
                 n /= 1.5
