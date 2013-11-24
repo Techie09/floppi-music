@@ -188,6 +188,9 @@ class MusicalFloppyEngine(Thread):
     ## @var _drives
     #  List of all drives in the engine.
 
+    ## @var _active
+    #  List of all drives used in the current playback
+
     ## @var _waiting
     #  List of drives waiting at syncmarks
 
@@ -236,8 +239,10 @@ class MusicalFloppyEngine(Thread):
 
                 # Count tracks
                 trackn = 0
+                self._active = []
                 while track:
                     # Assign track to drive
+                    self._active.append(self._drives[trackn])
                     self._drives[trackn].play(track.pop(0))
                     trackn += 1
 
@@ -246,7 +251,7 @@ class MusicalFloppyEngine(Thread):
                 break
 
             # Check whether all drives have reached a syncmark
-            if len(self._waiting) == len(self._drives):
+            if len(self._waiting) == len(self._active):
                 for drive in self._waiting:
                     drive.wakeup.set()
                 self._waiting = []
