@@ -28,6 +28,4 @@
 ## List of pins for drive control
 #  
 #  Hard-coded default as in doc/wiring.txt
-#
-#  TODO: Extend for 8 drives
-drives = [(3,5),(11,13),(15,19),(21,23)]
+drives = [(3,5),(11,13),(15,19),(21,23),(10,8),(16,12),(22,18),(26,24)]
