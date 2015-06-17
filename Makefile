@@ -10,9 +10,7 @@ gh-pages: doxygen
 
 push: gh-pages
 	git push --all github
-	git push --all shore
 	git push --tags github
-	git push --tags shore
 
 .PHONY: doxygen gh-pages push
 	
