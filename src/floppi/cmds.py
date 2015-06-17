@@ -50,6 +50,7 @@ def play():
     aparser = argparse.ArgumentParser()
     aparser.add_argument("path", help="path to the file to play")
     aparser.add_argument("-q", "--quiet", help="suppress status, metadata and other output to stderr", action="store_true")
+    aparser.add_argument("-v", "--visual", help="put engine in visual instead of loud mode", action="store_true")
     args = aparser.parse_args()
 
     # Print banner
@@ -87,7 +88,7 @@ def play():
         stderr.write("\n")
 
     # Start engine
-    engine = MusicalFloppyEngine(GPIO(), drives)
+    engine = MusicalFloppyEngine(GPIO(), drives, (1 if args.visual else 0))
     engine.start()
 
     # Enqueue playback

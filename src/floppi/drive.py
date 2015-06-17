@@ -116,6 +116,13 @@ class MusicalFloppy(Thread):
             self._gpio.toggle(self._pin_step)
             sleep(.002)
             self._gpio.toggle(self._pin_step)
+            if self._engine._mode == 1:
+                self._track += 1
+                if self._track >= 80:
+                    self._gpio.toggle(self._pin_direction)
+                    self._track = 0
+            else:
+                self._gpio.toggle(self._pin_direction)
 
     ## Move to home position, which is the middle track
     #
@@ -125,12 +132,15 @@ class MusicalFloppy(Thread):
     #
     #  @param self the object pointer
     def home(self):
+        # Assume we are at track 0, this doesn't matter now
+        self._track = 0
         # Move 80 tracks, just to be sure
         self.tracks(80)
         # Toggle direction
         self._gpio.toggle(self._pin_direction)
         # Move 40 tracks back
         self.tracks(40)
+        self._track = 40
 
     ## Shake the head with a certain interval
     #
@@ -148,7 +158,13 @@ class MusicalFloppy(Thread):
             self._gpio.toggle(self._pin_step)
             sleep(interval)
             self._gpio.toggle(self._pin_step)
-            self._gpio.toggle(self._pin_direction)
+            if self._engine._mode == 1:
+                self._track += 1
+                if self._track >= 80:
+                    self._gpio.toggle(self._pin_direction)
+                    self._track = 0
+            else:
+                self._gpio.toggle(self._pin_direction)
         sleep(rest)
 
     ## Play a certain frequency, for duration seconds
@@ -207,7 +223,8 @@ class MusicalFloppyEngine(Thread):
     #  @param self the object pointer
     #  @param gpio reference to the GPIO object in use
     #  @param pins a list of (direction, step) pin pairs for the drives
-    def __init__(self, gpio, pins):
+    #  @param mode mode to put the engine in. 0 for loud, 1 for visual
+    def __init__(self, gpio, pins, mode=0):
         Thread.__init__(self)
 
         # Setup all the drives
@@ -218,6 +235,7 @@ class MusicalFloppyEngine(Thread):
         self._playqueue = []
         self._waiting = []
         self._finished = []
+        self._mode = mode
         self._exit = False
 
     ## Run the engine thread
