@@ -88,8 +88,8 @@ Credits
 
 Credits go to:
 
- * Felix "theftf" Falk <felix@b9d.de>, for the wiring and hardware advice
- * Thorsten "mirabilos" Glaser <tg@mirbsd.de>, for his floppy drive donation
+ * Felix "theftf" Falk (felix@b9d.de), for the wiring and hardware advice
+ * Thorsten "mirabilos" Glaser (tg@mirbsd.de), for his floppy drive donation
    and magically always being right
 
 Awards
