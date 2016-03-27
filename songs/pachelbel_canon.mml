@@ -6,128 +6,128 @@
 
 o2t54 p1      | p1   | f+edc+o1  | babo2c+ | dc+o1ba  | gf+ge     |
 o2t54 do1abf+ | gdga | o2do1abf+ | gdp2    | o2f+edc+ | o1babo2c+ |
-o2t54 do1abf+ | gdga | o2do1abf+ | gdga    | >dabf+   | gdp2      |
-o2t54 do1abf+ | gdga | o2do1abf+ | gdga    | >dabf+   | gdga      |
+o2t54 do1abf+ | gdga | o2do1abf+ | gdga    | >d<abf+  | gdp2      |
+o2t54 do1abf+ | gdga | o2do1abf+ | gdga    | >d<abf+  | gdga      |
 
-o2do1abf+     | gdga      | >dabf+          | gdga            |
-dc+o1ba       | gf+ge     | l8df+agf+df+e   | d<bdagbag       |
-o2f+edc+      | o1babo2c+ | dc+o1ba         | gf+ge           |
-l8df+agf+df+e | d<bdagbag | f+deo2c+df+ao1a | bgaf+do2dd.c+16 |
+o2do1abf+     | gdga       | >d<abf+         | gdga            |
+dc+o1ba       | gf+ge      | l8df+agf+df+e   | d<b>dagbag      |
+o2f+edc+      | o1babo2c+  | dc+o1ba         | gf+ge           |
+l8df+agf+df+e | d<b>dagbag | f+deo2c+df+ao1a | bgaf+do2dd.c+16 |
 
-l16o2dc+do1dc+aef+do2dc+<bc+f+ab | gf+egf+edc+o1bagf+egf+e |
-f+deo2c+df+ao1a                  | bgaf+do2dd.c+16         |
-l8df+agf+df+e                    | d<bdagbag               |
-l4do1abf+                        | gdga                    |
+l16o2dc+do1dc+aef+do2dc+<b>c+f+ab | gf+egf+edc+o1bagf+egf+e |
+f+deo2c+df+ao1a                   | bgaf+do2dd.c+16         |
+l8df+agf+df+e                     | d<b>dagbag              |
+l4do1abf+                         | gdga                    |
 
-def+gaeagf+bagagf+e            | d<bbo2c+dc+o1bagf+ebabag |
-l16dc+do1dc+aef+do2dc+<bc+f+ab | gf+egf+edc+o1bagf+egf+e  |
-f+deo2c+df+ao1a                | bgaf+do2dd.c+16          |
->dabf+                         | gdga                     |
+def+gaeagf+bagagf+e             | d<b>bo2c+dc+o1bagf+ebabag |
+l16dc+do1dc+aef+do2dc+<b>c+f+ab | gf+egf+edc+o1bagf+egf+e   |
+f+deo2c+df+ao1a                 | bgaf+do2dd.c+16           |
+>d<abf+                         | gdga                      |
 
-l8f+o2f+e4p8df+4               | l4babo3c+                |
-def+gaeagf+bagagf+e            | d<bbo2c+dc+o1bagf+ebabag |
-l16dc+do1dc+aef+do2dc+<bc+f+ab | gf+egf+edc+o1bagf+egf+e  |
->dabf+                         | gdga                     |
+l8f+o2f+e4p8df+4                | l4babo3c+                 |
+def+gaeagf+bagagf+e             | d<b>bo2c+dc+o1bagf+ebabag |
+l16dc+do1dc+aef+do2dc+<b>c+f+ab | gf+egf+edc+o1bagf+egf+e   |
+>d<abf+                         | gdga                      |
 
-l8do2dl4c+p8<b8d    | d.l8ddgda                |
-f+8o2f+8ep8d8f+     | babo3c+                  |
-def+gaeagf+bagagf+e | d<bbo2c+dc+o1bagf+ebabag |
->dabf+              | gdga                     |
+l8do2dl4c+p8<b8>d   | d.l8ddgda                 |
+f+8o2f+8ep8d8f+     | babo3c+                   |
+def+gaeagf+bagagf+e | d<b>bo2c+dc+o1bagf+ebabag |
+>d<abf+             | gdga                      |
 
 l16amlf+32g32mnamll32f+gmnamlo1abo2c+def+gmnf+16mldemnf+16mlo1f+gabagaf+ga |
-d8o2d8c+p8<b8d                                                             |
+d8o2d8c+p8<b8>d                                                            |
 l4f+8o2f+8ep8d8f+                                                          |
->dabf+                                                                     |
+>d<abf+                                                                    |
 
 mng16mlbag16f+ef+edef+gabmng16mlbamnb16o2c+do1abo2c+def+ga |
 d.l8ddgda                                                  |
 babo3c+                                                    |
 gdga                                                       |
 
-mnf+16mldemnf+16mledec+def+edc+mnd16ml<bc+mnd16o1mldef+gf+emnf+o2mldc+d |
-d16mll32f+gmna16mlf+gmnao1mlabo2c+def+gmnf+16mldemnf+16o1mlf+gabagaf+ga |
-d8o2d8cp8<b8d                                                           |
->dabf+                                                                  |
+mnf+16mldemnf+16mledec+def+edc+mnd16ml<b>c+mnd16o1mldef+gf+emnf+o2mldc+d |
+d16mll32f+gmna16mlf+gmnao1mlabo2c+def+gmnf+16mldemnf+16o1mlf+gabagaf+ga  |
+d8o2d8cp8<b8>d                                                           |
+>d<abf+                                                                  |
 
-mn<b16mldc+o1mnb16mlagagf+gabo2c+dmn<b16mldc+mnd16mlc+<bc+dedc+d<bc+ |
-mng16mlbamng16mlf+ef+edef+gabmng16mlbamnb16ml>c+d+mnamlbo2c+def+ga   |
-d.l8ddgea                                                            |
-gdga                                                                 |
+mn<b16>mldc+o1mnb16mlagagf+gabo2c+dmn<b16>mldc+mnd16mlc+<b>c+dedc+d<b>c+ |
+mng16mlbamng16mlf+ef+edef+gabmng16mlbamnb16ml>c+<d+mnamlbo2c+def+ga      |
+d.l8ddgea                                                                |
+gdga                                                                     |
 
-l8mndpc+p<bpdp                                                          |
-mnf+16mldemnf+16mledec+def+edc+mnd16ml<bc+mnd16o1mldef+gf+edmneo2mldc+d |
-l32a16mlf+gmna16mlf+gmnaml<a<bc+def+gmnf+16mldemnf+16o1mlf+gabagaf+ga   |
->dabf+                                                                  |
+l8mndpc+p<b>pdp                                                          |
+mnf+16mldemnf+16mledec+def+edc+mnd16ml<b>c+mnd16o1mldef+gf+edmneo2mldc+d |
+l32a16mlf+gmna16mlf+gmnaml<ab>c+def+gmnf+16mldemnf+16o1mlf+gabagaf+ga    |
+>d<abf+                                                                  |
 
-o1dpdpdpep                                                          |
-mn<b16mldc+mno1b16mlagagf+gabo2c+dmn<b16mldcmnd16mlc+<bc+dedc+d<bc+ |
-mng16mlbamngmlf+ef+edef+gabmng16mlbamnb16mlo2c+dmn<aml<bc+def+ga    |
-gdga                                                                |
+o1dpdpdpep                                                               |
+mn<b16>mldc+mno1b16mlagagf+gabo2c+dmn<b16>mldcmnd16mlc+<b>c+dedc+d<b>c+  |
+mng16mlbamngmlf+ef+edef+gabmng16mlbamnb16mlo2c+dmn<a>ml<b>c+def+ga       |
+gdga                                                                     |
 
-l4>dabf+                                                               |
-l8mndpc+p<b+dp                                                         |
-mnf16mldemnf+16mledec+def+edc+mnd16ml<bc+mnd16o1mldef+gf+emnf+mlo2dc+d |
-l8papapf+pa                                                            |
+l4>d<abf+                                                                |
+l8mndpc+p<b+>dp                                                          |
+mnf16mldemnf+16mledec+def+edc+mnd16ml<b>c+mnd16o1mldef+gf+emnf+mlo2dc+d  |
+l8papapf+pa                                                              |
 
-gdga                                                                 |
-dpdpdpep                                                             |
-mn<b16mldc+mno1b16mlagagf+gabo2c+dmn<b16mldc+mnd16mlc+<bc+dedc+d<bc+ |
-pgpf+pgp>e                                                           |
+gdga                                                                     |
+dpdpdpep                                                                 |
+mn<b16>mldc+mno1b16mlagagf+gabo2c+dmn<b16>mldc+mnd16mlc+<b>c+dedc+d<b>c+ |
+pgpf+pgp>e<                                                              |
 
->dabf+                        | gdga                     |
-papapf+pa                     | pgpf+pgp>e               |
-l8mndpc+p<bpdp                | o1dpdpdpep               |
-l16>f+f+gf+eo2ef+edo1f+dbaaga | bb>c+baagabbabo2c+c+<bc+ |
+>d<abf+                        | gdga                       |
+papapf+pa                      | pgpf+pgp>e<                |
+l8mndpc+p<b>pdp                | o1dpdpdpep                 |
+l16>f+<f+gf+eo2ef+edo1f+dbaaga | bb>c+<baagabbabo2c+c+<b>c+ |
 
->dabf                         | gdga                          |
-l16>f+f+gf+eo2ef+edo1f+dbaaga | bb>c+baagabbabo2c+c+<bc+      |
-papapf+pa                     | pgpf+pgp>e                    |
-ddedc+c+dc+o1bbab>c+>d>ec+f+e | do2degf+o1f+a>f+bo2gf+geo1aga |
+>d<abf                         | gdga                           |
+l16>f+<f+gf+eo2ef+edo1f+dbaaga | bb>c+<baagabbabo2c+c+<b>c+     |
+papapf+pa                      | pgpf+pgp>e<                    |
+ddedc+c+dc+o1bbab>c+de<c+f+e   | do2degf+o1f+a>f+<bo2gf+geo1aga |
 
-l16f+aaaaaaaf+f+f+f+f+f+aa    | gggo2dddddddo1bbaa>e>c+    |
-ddedc+c+dc+o1bbab>c+c+f+e     | do2degf+<f+<af+dgf+geo1aga |
-l16>f+f+gf+eo2ef+edo1f+dbaaga | bb>c+baagabbabo2c+c+<bc+   |
-l4>dabf+                      | gdga                       |
+l16f+aaaaaaaf+f+f+f+f+f+aa     | gggo2dddddddo1bbaa>ec+<    |
+ddedc+c+dc+o1bbab>c+<c+f+e     | do2degf+<f+a>f+dgf+geo1aga |
+l16>f+<f+gf+eo2ef+edo1f+dbaaga | bb>c+<baagabbabo2c+c+<b>c+ |
+l4>d<abf+                      | gdga                       |
 
-ao2f+f+f+eeeeddddaaaa     | bbbbaaaabbbb>c+c+c+c+      |
-f+aaaaaaaf+f+f+f+f+f+aa   | gggo2ddddddo1bbaa>e>c+     |
-ddedc+c+dc+o1bbab>c+c+f+e | do2degf+<f+<af+dgf+geo1aga |
->dabf                     | gdga                       |
+ao2f+f+f+eeeeddddaaaa      | bbbbaaaabbbb>c+<c+c+c+     |
+f+aaaaaaaf+f+f+f+f+f+aa    | gggo2ddddddo1bbaa>ec+<     |
+ddedc+c+dc+o1bbab>c+<c+f+e | do2degf+<f+a>f+dgf+geo1aga |
+>d<abf                     | gdga                       |
 
-do1mld32e32mnf+dc+o2mlc+32d32mnec+<bml<b32c+32mnd<bc+mlo1a32g32mnf+e |
-<af+f+f+eeeeddddaaaa                                                 |
-f+aaaaaaaf+f+f+f+f+f+aa                                              |
->dabf                                                                |
+do1mld32e32mnf+dc+o2mlc+32d32mnec+<b>ml<b32>c+32mnd<b>c+mlo1a32g32mnf+e |
+<a>f+f+f+eeeeddddaaaa                                                   |
+f+aaaaaaaf+f+f+f+f+f+aa                                                 |
+>d<abf                                                                  |
 
 dmlg32f+32mnegf+mld32e32mnf+agmlb32a32mngf+emla32g32mnf+e |
-bbbbaaaabbbb>c+c+c+c+                                     |
-gggo2dddddddo1bbaa>e>c+                                   |
+bbbbaaaabbbb>c+<c+c+c+                                    |
+gggo2dddddddo1bbaa>ec+<                                   |
 gdga                                                      |
 
-l4>dabf                                                               |
-do1mld32e32mnf+dc+o2mlc+32d32mnec+<bml<b32c+32mnd<bc+mlo1a32g32mnf+e  |
-ao2f+f+f+eeeeddddaaaa                                                 |
-l16do2mld32c+32mndo1f+amla32b32mnc+af+mlo2d32e32mnf+df+mlf+32e32mndc+ |
+l4>d<abf                                                                |
+do1mld32e32mnf+dc+o2mlc+32d32mnec+<b>ml<b32>c+32mnd<b>c+mlo1a32g32mnf+e |
+ao2f+f+f+eeeeddddaaaa                                                   |
+l16do2mld32c+32mndo1f+amla32b32mnc+af+mlo2d32e32mnf+df+mlf+32e32mndc+   |
 
 gdga                                                      |
 dmlg32f+32mnegf+mld32e32mnf+agmlb32a32mngf+emla32g32mnf+e |
-bbbbaaaabbbb>c+c+c+c+                                     |
+bbbbaaaabbbb>c+<c+c+c+                                    |
 o1bmlb32a32mnbo2c+dmlf+32e32mndf+gmld32c+32mno1bbaeaa     |
 
->dabf                                                                 |
-l16do2mld32c+32mndo1f+amla32b32mnc+af+mlo2d32e32mnf+df+mlf+32e32mndc+ |
-do1mld32e32mnf+dc+o2mlc+32d32mnec+<bml<b32c+32mnd<bc+mlo1a32g32mnf+e  |
-l4a.a8d.a8                                                            |
+>d<abf                                                                  |
+l16do2mld32c+32mndo1f+amla32b32mnc+af+mlo2d32e32mnf+df+mlf+32e32mndc+   |
+do1mld32e32mnf+dc+o2mlc+32d32mnec+<b>ml<b32>c+32mnd<b>c+mlo1a32g32mnf+e |
+l4a.a8d.a8                                                              |
 
 gdga                                                      |
 o1bmlb32a32mnbo2c+dmlf+32e32mndf+gmld32c+32mno1bbaeaa     |
 dmlg32f+32mnegf+mld32e32mnf+agmlb32a32mngf+emla32g32mnf+e |
 gal8gdd.c+16                                              |
 
->dabf                                                                 |
+>d<abf                                                                |
 l4a.a8d.a8                                                            |
 l16do2mld32c+32mndo1f+amla32b32mnc+af+mlo2d32e32mnf+df+mlf+32e32mndc+ |
-d>dl4>c+ba                                                            |
+d>d<l4>c+<ba                                                          |
 
 gdga                                                  |
 gal8gdd.c+16                                          |
@@ -135,56 +135,56 @@ o1bmlb32a32mnbo2c+dmlf+32e32mndf+gmld32c+32mno1bbaeaa |
 l8mld.mse16mnf+4b4mle.mse16mn                         |
 
 l8f+.l16o2f+mlf+mngmlf+mnel8d.l16dmldmnemldmnc+ |
-d>dl4>c+ba                                      |
+d>d<l4>c+<ba                                    |
 l4a.a8d.a8                                      |
-l4>dabf                                         |
+l4>d<abf                                        |
 
-<b4d4mldmncml<bmnco1l8mla.l16mna |
-l8mld.mse16mnf+4b4mle.mse16mn    |
-gal8gdd.c+16                     |
-gdga                             |
+<b4>d4mldmncml<b>mnco1l8mla.l16mna |
+l8mld.mse16mnf+4b4mle.mse16mn      |
+gal8gdd.c+16                       |
+gdga                               |
 
 l8a.l16o2amlamnbmlamngl8f+.l16f+mlf+mngmlf+mne  |
 l8f+.l16o2f+mlf+mngmlf+mnel8d.l16dmldmnemldmnc+ |
-d>dl4>c+ba                                      |
->dabf                                           |
+d>d<l4>c+<ba                                    |
+>d<abf                                          |
 
-mldmncml<bmnc+oel8a.a16go2dc+.c+16 |
-<b4d4mldmncml<bmnc+o1l8mla.l16mna  |
-l8mld.mse16mnf+4b4mle.mse16mn      |
-gdga                               |
+mldmncml<b>mnc+oel8a.a16go2dc+.c+16 |
+<b4>d4mldmncml<b>mnc+o1l8mla.l16mna |
+l8mld.mse16mnf+4b4mle.mse16mn       |
+gdga                                |
 
 dl4dc+o1bmla8                                   |
 l8a.l16o2amlamnbmlamngl8f+.l16f+mlf+mngmlf+mne  |
 l8f+.l16o2f+mlf+mngmlf+mnel8d.l16dmldmnemldmnc+ |
->dabf                                           |
+>d<abf                                          |
 
-mna8gl8mlf+f+.l32mnel4e            |
-mldmncml<bmnc+oel8a.a16go2dc+.c+16 |
-<b4d4mldmncml<bmnc+o1l8mla.l16mna  |
-gdga                               |
+mna8gl8mlf+f+.l32mnel4e             |
+mldmncml<b>mnc+oel8a.a16go2dc+.c+16 |
+<b4>d4mldmncml<b>mnc+o1l8mla.l16mna |
+gdga                                |
 
 l8f+o2f+4edo3d4c                                |
 dl4dc+o1bmla8                                   |
 l8a.l16o2amlamnbmlamngl8f+.l16f+mlf+mngmlf+mne  |
->dabf                                           |
+>d<abf                                          |
 
-l4<bmld8o2mna8ba                   |
-mna8gl8mlf+f+.l32mnel4e            |
-mldmncml<bmnc+oel8a.a16go2dc+.c+16 |
-gdga                               |
+l4<b>mld8o2mna8ba                   |
+mna8gl8mlf+f+.l32mnel4e             |
+mldmncml<b>mnc+oel8a.a16go2dc+.c+16 |
+gdga                                |
 
 al8o1mla.l32mngf+4l16o2mlf+.l32mne | l4d.d8dc+               |
-l8f+o2f+4edo3d4c                   | l4<bmld8o2mna8ba        |
+l8f+o2f+4edo3d4c                   | l4<b>mld8o2mna8ba       |
 dl4dc+o1bmla8                      | mna8gl8mlf+f+.l32mnel4e |
->dabf                              | gdga                    |
+>d<abf                             | gdga                    |
 
-o1>dabf                            | gdga             |
-al8o1mla.l32mngf+4l16o2mlf+.l32mne | l4d.d8dc+        |
-l8f+o2f+4edo3d4c                   | l4<bmld8o2mna8ba |
-l8>ddc+>c+bbaa                     | g>g>f+f+ebe>e    |
+o1>d<abf                           | gdga              |
+al8o1mla.l32mngf+4l16o2mlf+.l32mne | l4d.d8dc+         |
+l8f+o2f+4edo3d4c                   | l4<b>mld8o2mna8ba |
+l8>d<dc+>c+<bbaa                   | g>g>f+<f+ebe>e<   |
 
->dabf                            | gdga            | >dp4p2
-o1l8>ddc+>c+bbaa                 | g>g>f+f+ebe>e   | l4>f+p4p2
-ao1l8mla.mng16l4f+o2l8mlf+.mne16 | l4d.d8dc+       | dp4p2
-f+o1f+e>e>ddc+o2c+               | <bbao1ag.>e16aa | l4ap4p2
+>d<abf                           | gdga              | >d<p4p2    ||
+o1l8>d<dc+>c+<bbaa               | g>g>f+<f+ebe>e<   | l4>f+<p4p2 ||
+ao1l8mla.mng16l4f+o2l8mlf+.mne16 | l4d.d8dc+         | dp4p2      ||
+f+o1f+e>ed<dc+o2c+               | <b>bao1ag.>e16<aa | l4ap4p2    ||
