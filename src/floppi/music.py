@@ -33,8 +33,9 @@ from __future__ import with_statement
 
 ## Pre-calculated note frequencies
 #
-#  The list comprehension creates a list of 84 frequencies from C0 to B6
-_notes = [440 * pow(pow(2, 1.0/12), n-58) for n in xrange(1, 85)]
+#  The list comprehension creates a list of 84 frequencies
+#  from C2 (C, o0c) to B8 (h''''', o6b).
+_notes = [(440.0 * pow(2, (n - 33) / 12.)) for n in xrange(0, 84)]
 
 ## Calculate playback length of a list of (frequency, duration) tuples
 #
@@ -50,6 +51,8 @@ def estimate_duration(track):
     return sum([x[1] for x in track if type(x) is tuple])
 
 ## Parse a string in the "music macro language"
+#
+#  Based on the documentation in: https://www.mirbsd.org/man4/spkr
 #
 #  Description of the musical macro language
 #  =========================================
