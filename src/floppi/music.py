@@ -176,10 +176,12 @@ def mml(macro):
                 note = current_c + 11
 
             if macro and macro[0] in ("#", "+"):
-                note += 1
+                if note < 83:
+                    note += 1
                 macro.pop(0)
             elif macro and macro[0] == "-":
-                note -= 1
+                if note > 0:
+                    note -= 1
                 macro.pop(0)
 
             n = ""
@@ -189,6 +191,8 @@ def mml(macro):
             _length = length
             if n:
                 _length = int(n)
+                if _length < 1 or _length > 64:
+                    _length = length
 
             while macro and macro[0] == ".":
                 macro.pop(0)
@@ -203,25 +207,37 @@ def mml(macro):
             while macro and macro[0] in [str(x) for x in range(10)]:
                 n += macro.pop(0)
 
-            if not n:
+            if n:
+                n = int(n)
+            else:
+                n = 4
+            if n < 0 or n > 6:
                 n = 4
 
-            current_c = int(n) * 12
+            current_c = n * 12
         elif char == "T":
             n = ""
             while macro and macro[0] in [str(x) for x in range(10)]:
                 n += macro.pop(0)
 
-            if not n:
+            if n:
+                n = int(n)
+            else:
+                n = 120
+            if n < 32 or n > 255:
                 n = 120
 
-            bpm = int(n)
+            bpm = n
         elif char == "L":
             n = ""
             while macro and macro[0] in [str(x) for x in range(10)]:
                 n += macro.pop(0)
 
-            if not n:
+            if n:
+                n = int(n)
+            else:
+                n = 4
+            if n < 1 or n > 64:
                 n = 4
 
             length = int(n)
@@ -232,6 +248,7 @@ def mml(macro):
 
             if not n:
                 n = 0
+            # n > 84 causes an IndexError; BSD skips the command silently
 
             note = int(n) - 1
 
