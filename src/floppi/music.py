@@ -37,6 +37,11 @@ from __future__ import with_statement
 #  from C2 (C, o0c) to B8 (h''''', o6b).
 _notes = [(440.0 * pow(2, (n - 33) / 12.)) for n in xrange(0, 84)]
 
+## Note offsets
+#
+#  Map note names to half-tone steps from the current C
+_noteoffsets = { "C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11 }
+
 ## Calculate playback length of a list of (frequency, duration) tuples
 #
 #  This function looks at all the tuples in a playback list and estimates
@@ -49,6 +54,61 @@ def estimate_duration(track):
     # for syncmarks; extract second entries of tuples and add them up and
     # return the result, all in one list comprehension -- I ❤ Python!
     return sum([x[1] for x in track if type(x) is tuple])
+
+## Play a note or pause
+#
+#  Helper function to play an MML note after parsing sustain dots
+#
+#  @param macro the MML list
+#  @param res the result list
+#  @param bpm the current tempo
+#  @param art the current articulation
+#  @param note the note number minus 1, or -1 for pause
+#  @param length the time value (length) to play
+def _play(macro, res, bpm, art, note, length):
+    # parse sustain dots
+    while macro and macro[0] == ".":
+        macro.pop(0)
+        length /= 1.5
+
+    # calculate duration
+    duration = ((60.0 / bpm) * 4) / length
+
+    # articulate note
+    if note == -1:
+        # pause
+        res.append((0, duration))
+    elif art == 'L':
+        # legato
+        res.append((_notes[note], duration))
+    else:
+        # normal or staccato
+        if art == 'N':
+            part = 7.0/8
+        else:
+            part = 3.0/4
+        res.append((_notes[note], duration * part))
+        res.append((0, duration - duration * part))
+
+## Parse an MML number
+#
+#  Parses an MML number (positive) with bounds checking
+#
+#  @param macro the MML list
+#  @param minval the minimum allowed value
+#  @param maxval the maximum allowed value
+#  @param defval the default value to use if bounds are exceeded
+#  @return an int, or defval
+def _getint(macro, minval, maxval, defval):
+    n = ""
+    while macro and macro[0].isdigit():
+        n += macro.pop(0)
+    if not n:
+        return defval
+    i = int(n)
+    if i < minval or i > maxval:
+        return defval
+    return i
 
 ## Parse a string in the "music macro language"
 #
@@ -71,14 +131,14 @@ def estimate_duration(track):
 #  note to change the length for that note only. A16 is equivalent to
 #  L16A. Default is L4.
 #
+#  ML
+#  --
+#  Music legato. Each note plays the full period set by L.
+#
 #  MN
 #  --
 #  Music normal. Each note plays seven-eighths of the time determined by
 #  L (length).
-#
-#  ML
-#  --
-#  Music legato. Each note plays the full period set by L.
 #
 #  MS
 #  --
@@ -127,7 +187,7 @@ def estimate_duration(track):
 #  |
 #  -
 #
-#  Optionally used as a synchronization mark for multi-track music.
+#  Optionally used as a synchronisation mark for multi-track music.
 #  This is a proprietary extension in the Floppi-Music project.
 #
 #
@@ -146,12 +206,12 @@ def mml(macro):
     res = []
 
     # State machine variables
+    art = 'N'
     bpm = 120
-    current_c = 48
-    part = 7.0/8
-    length = 4
+    octave = 4
+    timevalue = 4
 
-    # Normalize macro string
+    # Normalise macro string
     macro = macro.upper()
     macro = macro.replace(" ", "")
     macro = list(macro)
@@ -159,22 +219,11 @@ def mml(macro):
     while macro:
         char = macro.pop(0)
 
-        if char in ("C", "D", "E", "F", "G", "A", "B"):
-            if char == "C":
-                note = current_c
-            elif char == "D":
-                note = current_c + 2
-            elif char == "E":
-                note = current_c + 4
-            elif char == "F":
-                note = current_c + 5
-            elif char == "G":
-                note = current_c + 7
-            elif char == "A":
-                note = current_c + 9
-            elif char == "B":
-                note = current_c + 11
+        if char in _noteoffsets.keys():
+            # base note
+            note = 12 * octave + _noteoffsets[char]
 
+            # accidental sign
             if macro and macro[0] in ("#", "+"):
                 if note < 83:
                     note += 1
@@ -184,113 +233,49 @@ def mml(macro):
                     note -= 1
                 macro.pop(0)
 
-            n = ""
-            while macro and macro[0] in [str(x) for x in range(10)]:
-                n += macro.pop(0)
+            # length
+            _length = _getint(macro, 1, 64, timevalue)
 
-            _length = length
-            if n:
-                _length = int(n)
-                if _length < 1 or _length > 64:
-                    _length = length
+            # sustain dots, and play the note
+            _play(macro, res, bpm, art, note, _length)
 
-            while macro and macro[0] == ".":
-                macro.pop(0)
-                _length /= 1.5
-
-            duration = ((60.0 / bpm) * 4) / _length
-
-            res.append((_notes[note], duration * part))
-            res.append((0, duration - duration * part))
-        elif char == "O":
-            n = ""
-            while macro and macro[0] in [str(x) for x in range(10)]:
-                n += macro.pop(0)
-
-            if n:
-                n = int(n)
-            else:
-                n = 4
-            if n < 0 or n > 6:
-                n = 4
-
-            current_c = n * 12
-        elif char == "T":
-            n = ""
-            while macro and macro[0] in [str(x) for x in range(10)]:
-                n += macro.pop(0)
-
-            if n:
-                n = int(n)
-            else:
-                n = 120
-            if n < 32 or n > 255:
-                n = 120
-
-            bpm = n
         elif char == "L":
-            n = ""
-            while macro and macro[0] in [str(x) for x in range(10)]:
-                n += macro.pop(0)
+            timevalue = _getint(macro, 1, 64, 4)
 
-            if n:
-                n = int(n)
-            else:
-                n = 4
-            if n < 1 or n > 64:
-                n = 4
-
-            length = int(n)
-        elif char == "N":
-            n = ""
-            while macro and macro[0] in [str(x) for x in range(10)]:
-                n += macro.pop(0)
-
-            if not n:
-                n = 0
-            # n > 84 causes an IndexError; BSD skips the command silently
-
-            note = int(n) - 1
-
-            duration = ((60.0 / bpm) * 4) / length
-
-            if note > -1:
-                res.append((_notes[note], duration * part))
-                res.append((0, duration - duration * part))
-            else:
-                res.append((0, duration))
-        elif char == "P":
-            n = ""
-            while macro and macro[0] in [str(x) for x in range(10)]:
-                n += macro.pop(0)
-
-            if not n:
-                n = length
-
-            n = float(n)
-
-            while macro and macro[0] == ".":
-                macro.pop(0)
-                n /= 1.5
-
-            duration = ((60.0 / bpm) * 4) / int(n)
-
-            res.append((0, duration))
         elif char == "M":
-            mode = macro.pop(0)
+            if macro:
+                char = macro.pop(0)
+                if char in ("L", "N", "S"):
+                    art = char
 
-            if mode == "N":
-                part = 7.0/8
-            elif mode == "S":
-                part = 3.0/4
-            elif mode == "L":
-                part = 1.0
+        elif char == "N":
+            # n > 84 causes an IndexError; BSD skips the command silently
+            note = _getint(macro, 0, 84, -1) - 1
+            _play(macro, res, bpm, art, note, timevalue)
+
+        elif char == "O":
+            octave = _getint(macro, 0, 6, 4)
+
+        elif char == "P":
+            _length = _getint(macro, 1, 64, timevalue)
+            _play(macro, res, bpm, art, -1, _length)
+
+        elif char == "T":
+            bpm = _getint(macro, 32, 255, 120)
+
         elif char == "<":
-            current_c -= 12
+            if octave > 0:
+                octave -= 1
+
         elif char == ">":
-            current_c += 12
+            if octave < 6:
+                octave += 1
+
         elif char == "|":
             res.append(1)
+
+        #elif char == "X":
+        # consider causing an exception
 
     return res
 
