@@ -76,6 +76,15 @@ def _addtoplaylist(res, freq, dur):
     res.append(prec)
     res.append((freq, dur))
 
+## Add bar line to playlist
+#
+#  Helper function to merge a synchronisation mark onto the playlist
+#
+#  @param res the result list
+def _addbartoplaylist(res):
+    if len(res) > 0 and res[-1] != 1:
+        res.append(1)
+
 ## Play a note or pause
 #
 #  Helper function to play an MML note after parsing sustain dots
@@ -293,8 +302,7 @@ def mml(macro):
                 octave += 1
 
         elif char == "|":
-            if len(res) > 0 and res[-1] != 1:
-                res.append(1)
+            _addbartoplaylist(res)
 
         #elif char == "X":
         # consider causing an exception
