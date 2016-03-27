@@ -272,7 +272,8 @@ def mml(macro):
                 octave += 1
 
         elif char == "|":
-            res.append(1)
+            if len(res) == 0 or res[-1] != 1:
+                res.append(1)
 
         #elif char == "X":
         # consider causing an exception
