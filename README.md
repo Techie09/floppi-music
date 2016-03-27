@@ -66,18 +66,22 @@ Licence
 
 All source code and artwork:
 
+```
  Published under The MirOS Licence.
 
  Copyright © 2013
        Dominik George <nik@naturalnet.de>
        Eike Tim Jesinghaus <eike@naturalnet.de>
+```
 
 The kangaroo in the artwork:
 
+```
  All rights reserved.
 
  Copyright © 2012
        Carina Salomon <carina@naturalnet.de>
+```
 
 Credits
 -------
