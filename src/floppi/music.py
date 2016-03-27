@@ -376,11 +376,11 @@ def mml_file_meta(path):
                     value = ":".join(parts)
 
                     meta[key.strip().lower()] = value.strip()
-            elif state == 1:
+            if state == 1:
                 # Skip first space
                 if not l.strip() == "":
                     state = 2
-            elif state == 2:
+            if state == 2:
                 vcount += 1
                 if l.strip() == "":
                     # Everything of interest has gone
