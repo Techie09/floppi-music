@@ -8,6 +8,8 @@
 #  of (frequency, duration) tuples, suitable for passing to
 #  floppi.drive.MusicalFloppy.play .
 
+# Copyright © 2016
+#       mirabilos <m@mirbsd.org>
 # Copyright © 2013
 #       Dominik George <nik@naturalnet.de>
 #       Eike Tim Jesinghaus <eike@naturalnet.de>
@@ -26,6 +28,8 @@
 # of dealing in the work, even if advised of the possibility of such
 # damage or existence of a defect, except proven that it results out
 # of said person’s immediate fault when using the work as intended.
+
+from __future__ import with_statement
 
 ## Pre-calculated note frequencies
 #
@@ -375,3 +379,11 @@ def mml_file_meta(path):
 def get_music_parser(path):
     if path.endswith(".mml"):
         return (mml_file, mml_file_meta)
+
+## Debugging, if directly called
+#
+# Parses its first argument as MML and displays the tuples.
+#
+if __name__ == '__main__':
+    import sys
+    print mml(sys.argv[1])
