@@ -93,7 +93,7 @@ def estimate_duration(track):
 #  O(n)
 #  ----
 #  Octave 0 sets the current octave. There are 7 octaves (0 through 6).
-#  Default is 4. Middle C is at the beginning of octave 3.
+#  Default is 4. Middle C is at the beginning of octave 2.
 #
 #  P(n)
 #  ----
@@ -139,7 +139,7 @@ def estimate_duration(track):
 #  The German children's song "Alle meine Entchen" in music macro
 #  language would be:
 #
-#  c d e f g2 g2 a a a a g1 a a a a g1 f f f f e2 e2 d d d d c1
+#  o2 c d e f g2 g2 a a a a g1 a a a a g1 f f f f e2 e2 d d d d c1
 #
 #
 #  @param macro string in the music macro language
