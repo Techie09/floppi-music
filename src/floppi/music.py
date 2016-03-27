@@ -293,7 +293,7 @@ def mml(macro):
                 octave += 1
 
         elif char == "|":
-            if len(res) == 0 or res[-1] != 1:
+            if len(res) > 0 and res[-1] != 1:
                 res.append(1)
 
         #elif char == "X":
