@@ -43,7 +43,7 @@ The wiring scheme for the Raspberry and floppy interfaces can be found
 Get the code
 ------------
 
-The code is hsoted at http://github.com/Natureshadow/floppi-music .
+The code is hosted at http://github.com/Natureshadow/floppi-music .
 
 What works
 ----------
