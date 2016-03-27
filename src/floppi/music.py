@@ -55,6 +55,27 @@ def estimate_duration(track):
     # return the result, all in one list comprehension -- I ❤ Python!
     return sum([x[1] for x in track if type(x) is tuple])
 
+## Merge note or pause onto playlist
+#
+# Helper function to merge a note or pause onto the playlist
+#
+#  @param res the result list
+#  @param freq the frequency (0 to pause)
+#  @param dur the length
+def _addtoplaylist(res, freq, dur):
+    # simple case
+    if len(res) == 0 or type(res[-1]) is not tuple:
+        res.append((freq, dur))
+        return
+    # merge same-frequency occurrences
+    prec = res.pop()
+    if prec[0] == freq:
+        res.append((freq, prec[1] + dur))
+        return
+    # oops, no; restore preceding element and add a new one
+    res.append(prec)
+    res.append((freq, dur))
+
 ## Play a note or pause
 #
 #  Helper function to play an MML note after parsing sustain dots
@@ -77,18 +98,18 @@ def _play(macro, res, bpm, art, note, length):
     # articulate note
     if note == -1:
         # pause
-        res.append((0, duration))
+        _addtoplaylist(res, 0, duration)
     elif art == 'L':
         # legato
-        res.append((_notes[note], duration))
+        _addtoplaylist(res, _notes[note], duration)
     else:
         # normal or staccato
         if art == 'N':
             part = 7.0/8
         else:
             part = 3.0/4
-        res.append((_notes[note], duration * part))
-        res.append((0, duration - duration * part))
+        _addtoplaylist(res, _notes[note], duration * part)
+        _addtoplaylist(res, 0, duration - duration * part)
 
 ## Parse an MML number
 #
