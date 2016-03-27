@@ -116,15 +116,13 @@ def estimate_duration(track):
 #  periods (A...) at 27/8, etc. Periods may also appear after a P
 #  (pause), and increase the pause length as described above.
 #
-#  >n
-#  --
-#  A greater-than symbol preceding the note n plays the note in the next
-#  higher octave.
+#  >
+#  -
+#  A greater-than symbol raises the current octave by one.
 #
-#  <n
-#  --
-#  A less-than symbol preceding the note n plays the note in the next
-#  lower octave.
+#  <
+#  -
+#  A less-than symbol lowers the current octave by one.
 #
 #  |
 #  -
@@ -152,7 +150,6 @@ def mml(macro):
     current_c = 48
     part = 7.0/8
     length = 4
-    oswitch = ""
 
     # Normalize macro string
     macro = macro.upper()
@@ -198,12 +195,6 @@ def mml(macro):
                 _length /= 1.5
 
             duration = ((60.0 / bpm) * 4) / _length
-
-            if oswitch == "<":
-                note -= 12
-            elif oswitch == ">":
-                note += 12
-            oswitch = ""
 
             res.append((_notes[note], duration * part))
             res.append((0, duration - duration * part))
@@ -277,8 +268,10 @@ def mml(macro):
                 part = 3.0/4
             elif mode == "L":
                 part = 1.0
-        elif char in ("<", ">"):
-            oswitch = char
+        elif char == "<":
+            current_c -= 12
+        elif char == ">":
+            current_c += 12
         elif char == "|":
             res.append(1)
 
