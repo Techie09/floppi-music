@@ -59,8 +59,8 @@ def estimate_duration(track):
 #
 #  Based on http://www.antonis.de/qbebooks/gwbasman/play.html .
 #
-#  A-G [#,+,-]
-#  -----------
+#  A-G[#,+,-][length]
+#  ------------------
 #  A-G are notes. # or + following a note produces a sharp; - produces a
 #  flat.
 #
@@ -69,7 +69,7 @@ def estimate_duration(track):
 #  Sets the length of each note. L4 is a quarter note, L1 is a whole
 #  note, and so on. n may be from 1 to 64. Length may also follow the
 #  note to change the length for that note only. A16 is equivalent to
-#  L16A.
+#  L16A. Default is L4.
 #
 #  MN
 #  --
@@ -88,7 +88,7 @@ def estimate_duration(track):
 #  N(n)
 #  ----
 #  Play note n. n may range from 0 to 84. In the 7 possible octaves,
-#  there are 84 notes. n set to 0 indicates a rest.
+#  there are 84 notes. n set to 0 (or omitted) indicates a rest.
 #
 #  O(n)
 #  ----
@@ -97,7 +97,7 @@ def estimate_duration(track):
 #
 #  P(n)
 #  ----
-#  Pause. P may range from 1-64.
+#  Pause. n may range from 1-64; the current L value is used if omitted.
 #
 #  T(n)
 #  ----
