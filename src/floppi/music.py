@@ -64,7 +64,7 @@ def estimate_duration(track):
 #  A-G are notes. # or + following a note produces a sharp; - produces a
 #  flat.
 #
-#  L(n)    
+#  L(n)
 #  ----
 #  Sets the length of each note. L4 is a quarter note, L1 is a whole
 #  note, and so on. n may be from 1 to 64. Length may also follow the

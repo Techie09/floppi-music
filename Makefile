@@ -13,4 +13,3 @@ push: gh-pages
 	git push --tags github
 
 .PHONY: doxygen gh-pages push
-	

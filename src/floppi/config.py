@@ -26,6 +26,6 @@
 # of said person’s immediate fault when using the work as intended.
 
 ## List of pins for drive control
-#  
+#
 #  Hard-coded default as in doc/wiring.txt
 drives = [(3,5),(11,13),(15,19),(21,23),(10,8),(16,12),(22,18),(26,24)]
