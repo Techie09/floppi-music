@@ -620,10 +620,21 @@ if __name__ == '__main__':
 
             # tempo change?
             if bpm != ply[0]:
+                tmpel = doc.createElement('direction')
+                tmpex = doc.createElement('metronome')
+                x = doc.createElement('beat-unit')
+                x.appendChild(doc.createTextNode('quarter'))
+                tmpex.appendChild(x)
+                x = doc.createElement('per-minute')
+                x.appendChild(doc.createTextNode(str(ply[0])))
+                tmpex.appendChild(x)
+                x = doc.createElement('direction-type')
+                x.appendChild(tmpex)
+                tmpel.appendChild(x)
                 x = doc.createElement('sound')
                 x.setAttribute('tempo', str(ply[0]))
-                #XXX or in a direction container node?
-                barnode.appendChild(x)
+                tmpel.appendChild(x)
+                barnode.appendChild(tmpel)
 
             # unpack and convert raw note to pitch (best guess)
             (bpm, art, length, ndots, extra) = ply
