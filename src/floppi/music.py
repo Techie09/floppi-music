@@ -58,6 +58,20 @@ _notefromofs = [ item for sublist in [ [
     ( octave, 'B', u'♮' ),
   ] for octave in xrange(0, 7) ] for item in sublist ];
 
+## MusicXML note lengths
+_xmlnotetypes = { 64: '64th', 32: '32nd', 16: '16th',
+  8: 'eighth', 4: 'quarter', 2: 'half', 1: 'whole' }
+
+## Calculate greatest common divisor
+def ggT(a, b):
+    while b:
+        (a, b) = (b, a % b)
+    return a
+
+## Calculate least/lowest/smallest common multiple
+def kgV(a, b):
+    return (a * b) // ggT(a, b)
+
 ## Calculate playback length of a list of (frequency, duration) tuples
 #
 #  This function looks at all the tuples in a playback list and estimates
@@ -440,26 +454,16 @@ if __name__ == '__main__':
         print mml(sys.argv[1])
         sys.exit(0)
 
-    # helper functions for later
-    def ggT(a, b):
-        while b:
-            (a, b) = (b, a % b)
-        return a
-    def kgV(a, b):
-        return (a * b) // ggT(a, b)
+    ###################
+    # MusicXML export #
+    ###################
 
-    # helper data for later
-    _lens = { 64: '64th', 32: '32nd', 16: '16th',
-      8: 'eighth', 4: 'quarter', 2: 'half', 1: 'whole' }
-
+    # reuse the parser, override _addbartoplaylist (not currently needed)
+    # and _addtoplaylist and/or _play (we only need _play at the moment);
+    # this breaks the metadata function though, so do that first:
     meta = mml_file_meta(sys.argv[1])
-    # meta.voices
-    from pprint import pprint
-    #pprint(meta)
-#    sys.exit(0)
 
-    # possibly override _addbartoplaylist here, but not needed
-
+    # now override the functions
     orig_play = _play
     def _play(macro, res, bpm, art, note, length, extra):
         # 'extra' can be: -1 (pause), 0‥83 (note), or a tuple
@@ -475,7 +479,6 @@ if __name__ == '__main__':
 
     # call overridden functions
     staves = mml_file(sys.argv[1])
-    #pprint(staves)
 
     # create MusicXML document
     import xml
@@ -487,6 +490,7 @@ if __name__ == '__main__':
       'http://www.musicxml.org/dtds/partwise.dtd'))
     score = doc.documentElement
     score.setAttribute('version', '3.0')
+
     # carry over floppi.music-specific metadata
     if meta.has_key('title'):
         x = doc.createElement('movement-title')
@@ -545,6 +549,7 @@ if __name__ == '__main__':
         tmpex.appendChild(x)
     tmpel.appendChild(tmpex)
     score.appendChild(tmpel)
+
     # required metadata
     tmpel = doc.createElement('part-list')
     for trkno in xrange(1, len(staves) + 1):
@@ -575,7 +580,6 @@ if __name__ == '__main__':
 
         # attribute node, once per part, located in the first bar
         tmpel = doc.createElement('attributes')
-        # we have up to 1/64th notes
         x = doc.createElement('divisions')
         x.appendChild(doc.createTextNode(str(divisions)))
         tmpel.appendChild(x)
@@ -594,7 +598,7 @@ if __name__ == '__main__':
         barnode = doc.createElement('measure')
         barnode.setAttribute('number', str(barno))
         barnode.appendChild(tmpel)
-        # hack to always end on a bar line
+        # hack to always end on a bar line, so the last bar is not lost
         if len(staff) == 0 or staff[-1] != 1:
             staff.append(1)
 
@@ -607,11 +611,13 @@ if __name__ == '__main__':
                 # force re-init on next note
                 barnode = None
                 continue
+
             # start a new bar?
             if barnode is None:
                 barno += 1
                 barnode = doc.createElement('measure')
                 barnode.setAttribute('number', str(barno))
+
             # tempo change?
             if bpm != ply[0]:
                 x = doc.createElement('sound')
@@ -644,15 +650,16 @@ if __name__ == '__main__':
                 x.appendChild(doc.createTextNode(str(extra[0] + 2)))
                 tmpex.appendChild(x)
             tmpel.appendChild(tmpex)
+            # if notelens calculation is correct, dottedlen is always integer
             dottedlen = notelens / length
             for tmp in xrange(0, ndots):
                 dottedlen *= 1.5
             x = doc.createElement('duration')
             x.appendChild(doc.createTextNode(str(int(dottedlen))))
             tmpel.appendChild(x)
-            if length in _lens.keys():
+            if length in _xmlnotetypes.keys():
                 x = doc.createElement('type')
-                x.appendChild(doc.createTextNode(_lens[length]))
+                x.appendChild(doc.createTextNode(_xmlnotetypes[length]))
                 tmpel.appendChild(x)
             # order is important!
             for tmp in xrange(0, ndots):
