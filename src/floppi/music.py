@@ -30,6 +30,7 @@
 # of said person’s immediate fault when using the work as intended.
 
 from __future__ import with_statement
+import codecs
 
 ## Pre-calculated note frequencies
 #
@@ -336,7 +337,7 @@ def mml_file(path):
     vlists = []
     vcount = 0
 
-    with open(path, "r") as f:
+    with codecs.open(path, "r", "UTF-8") as f:
         for l in f:
             if l.strip().startswith("#"):
                 continue
@@ -364,7 +365,7 @@ def mml_file_meta(path):
     vcount = 0
     meta = {}
 
-    with open(path, "r") as f:
+    with codecs.open(path, "r", "UTF-8") as f:
         for l in f:
             if state == 0:
                 # Header fields
