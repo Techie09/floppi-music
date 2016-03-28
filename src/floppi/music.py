@@ -459,25 +459,19 @@ if __name__ == '__main__':
     ###################
 
     # reuse the parser, override _addbartoplaylist (not currently needed)
-    # and _addtoplaylist and/or _play (we only need _play at the moment);
+    # and _addtoplaylist and/or _play (we only need _play at the moment)
+
     # this breaks the metadata function though, so do that first:
     meta = mml_file_meta(sys.argv[1])
 
-    # now override the functions
-    orig_play = _play
+    # call MML parser with overridden play function
     def _play(macro, res, bpm, art, note, length, extra):
-        # 'extra' can be: -1 (pause), 0‥83 (note), or a tuple
-        # (mml-octave-number, note-char, u'♭' | u'♮' | u'♯')
-
         # parse sustain dots
         ndots = 0
         while macro and macro[0] == ".":
             macro.pop(0)
             ndots += 1
-
         res.append((bpm, art, length, ndots, extra))
-
-    # call overridden functions
     staves = mml_file(sys.argv[1])
 
     # create MusicXML document
