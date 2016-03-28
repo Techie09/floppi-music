@@ -598,9 +598,9 @@ if __name__ == '__main__':
         barnode = doc.createElement('measure')
         barnode.setAttribute('number', str(barno))
         barnode.appendChild(tmpel)
-        # hack to always end on a bar line, so the last bar is not lost
-        if len(staff) == 0 or staff[-1] != 1:
-            staff.append(1)
+        # hack to never end on a bar line – end needs special love
+        while len(staff) > 0 and staff[-1] == 1:
+            staff.pop()
 
         # now iterate through the staff
         bpm = -1
@@ -745,6 +745,12 @@ if __name__ == '__main__':
             tmpex.appendChild(x)
             lastslur.appendChild(tmpex)
         # finish staff
+        tmpex = doc.createElement('barline')
+        x = doc.createElement('bar-style')
+        x.appendChild(doc.createTextNode('light-heavy'))
+        tmpex.appendChild(x)
+        barnode.appendChild(tmpex)
+        trknode.appendChild(barnode)
         score.appendChild(trknode)
 
     print doc.toxml("UTF-8")
