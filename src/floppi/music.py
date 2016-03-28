@@ -423,11 +423,3 @@ def mml_file_meta(path):
 def get_music_parser(path):
     if path.endswith(".mml"):
         return (mml_file, mml_file_meta)
-
-## Debugging, if directly called
-#
-# Parses its first argument as MML and displays the tuples.
-#
-if __name__ == '__main__':
-    import sys
-    print mml(sys.argv[1])
