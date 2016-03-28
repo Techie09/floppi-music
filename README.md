@@ -48,7 +48,7 @@ The code is hosted at http://github.com/Natureshadow/floppi-music .
 What works
 ----------
 
- * Parsing of MML (Music Macro Language) files
+ * Parsing of MML (Music Macro Language) files, via [MMLlib](https://github.com/Natureshadow/mmllib)
  * Playback of 4 (or 8) simultaneous tracks
  * floppi-play command to play recognized, single files through the engine
 
