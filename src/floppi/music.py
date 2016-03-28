@@ -604,6 +604,8 @@ if __name__ == '__main__':
 
         # now iterate through the staff
         bpm = -1
+        lastslur = None
+        inslur = 0
         for ply in staff:
             # finish a bar?
             if ply == 1:
@@ -675,20 +677,74 @@ if __name__ == '__main__':
             # order is important!
             for tmp in xrange(0, ndots):
                 tmpel.appendChild(doc.createElement('dot'))
-            if art == 'S':
-                tmpex = doc.createElement('notations')
-                x = doc.createElement('articulations')
-                x.appendChild(doc.createElement('staccato'))
-                tmpex.appendChild(x)
-                tmpel.appendChild(tmpex)
-            elif art == 'L':
-                #XXX
-                tmpex = doc.createElement('notations')
-                x = doc.createElement('articulations')
-                x.appendChild(doc.createElement('detached-legato'))
-                tmpex.appendChild(x)
-                tmpel.appendChild(tmpex)
+            # articulation - is this a note (no pause)?
+            if extra != -1:
+                # not a pause then… ML started on the previous note?
+                if inslur == 1:
+                    # start Binde-/Haltebogen
+                    x = doc.createElement('slur')
+                    x.setAttribute('type', 'start')
+                    lastslur.appendChild(x)
+                # ML while slur is active?
+                if inslur > 0 and art == 'L':
+                    # just cache this node and go on
+                    lastslur = tmpel
+                    inslur = 2
+                # ML start?
+                if inslur == 0 and art == 'L':
+                    # cache notations node, filled in next note
+                    lastslur = doc.createElement('notations')
+                    tmpel.appendChild(lastslur)
+                    inslur = 1
+                # ML end on this note and/or MS? => common XML element
+                if (inslur > 0 and art != 'L') or art == 'S':
+                    tmpex = doc.createElement('notations')
+                    tmpel.appendChild(tmpex)
+                # ML end on this note?
+                if inslur > 0 and art != 'L':
+                    # end Binde-/Haltebogen
+                    x = doc.createElement('slur')
+                    x.setAttribute('type', 'stop')
+                    tmpex.appendChild(x)
+                    lastslur = None
+                    inslur = 0
+                # MS for this note?
+                if art == 'S':
+                    # create staccato dot
+                    x = doc.createElement('articulations')
+                    x.appendChild(doc.createElement('staccato'))
+                    tmpex.appendChild(x)
+                # MN does not need any extra handling
+            else:
+                # ML started on the previous note, detached legato
+                if inslur == 1:
+                    x = doc.createElement('articulations')
+                    x.appendChild(doc.createElement('detached-legato'))
+                    lastslur.appendChild(x)
+                    lastslur = None
+                    inslur = 0
+                # ML started before the previous note, end Binde-/Haltebogen
+                if inslur == 2:
+                    tmpex = doc.createElement('notations')
+                    x = doc.createElement('slur')
+                    x.setAttribute('type', 'stop')
+                    tmpex.appendChild(x)
+                    lastslur.appendChild(tmpex)
+                    lastslur = None
+                    inslur = 0
             barnode.appendChild(tmpel)
+        # any unfinished ML? detached legato or end Binde-/Haltebogen
+        if inslur == 1:
+            x = doc.createElement('articulations')
+            x.appendChild(doc.createElement('detached-legato'))
+            lastslur.appendChild(x)
+        if inslur == 2:
+            tmpex = doc.createElement('notations')
+            x = doc.createElement('slur')
+            x.setAttribute('type', 'stop')
+            tmpex.appendChild(x)
+            lastslur.appendChild(tmpex)
+        # finish staff
         score.appendChild(trknode)
 
     print doc.toxml("UTF-8")
