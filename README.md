@@ -49,6 +49,7 @@ What works
 ----------
 
  * Parsing of MML (Music Macro Language) files
+ * Export of MML to MusicXML, which can be imported in MuseScore (standalone)
  * Playback of 4 (or 8) simultaneous tracks
  * floppi-play command to play recognized, single files through the engine
 
