@@ -111,7 +111,8 @@ def _addbartoplaylist(res):
 #  @param art the current articulation
 #  @param note the note number minus 1, or -1 for pause
 #  @param length the time value (length) to play
-def _play(macro, res, bpm, art, note, length):
+#  @param extra extra information for XML export
+def _play(macro, res, bpm, art, note, length, extra):
     # parse sustain dots
     while macro and macro[0] == ".":
         macro.pop(0)
@@ -268,22 +269,25 @@ def mml(macro):
         if char in _noteoffsets.keys():
             # base note
             note = 12 * octave + _noteoffsets[char]
+            extra = (octave, char, u'♮')
 
             # accidental sign
             if macro and macro[0] in ("#", "+"):
                 if note < 83:
                     note += 1
+                    extra = (octave, char, u'♯')
                 macro.pop(0)
             elif macro and macro[0] == "-":
                 if note > 0:
                     note -= 1
+                    extra = (octave, char, u'♭')
                 macro.pop(0)
 
             # length
             _length = _getint(macro, 1, 64, timevalue)
 
             # sustain dots, and play the note
-            _play(macro, res, bpm, art, note, _length)
+            _play(macro, res, bpm, art, note, _length, extra)
 
         elif char == "L":
             timevalue = _getint(macro, 1, 64, 4)
@@ -297,14 +301,14 @@ def mml(macro):
         elif char == "N":
             # n > 84 causes an IndexError; BSD skips the command silently
             note = _getint(macro, 0, 84, -1) - 1
-            _play(macro, res, bpm, art, note, timevalue)
+            _play(macro, res, bpm, art, note, timevalue, note)
 
         elif char == "O":
             octave = _getint(macro, 0, 6, 4)
 
         elif char == "P":
             _length = _getint(macro, 1, 64, timevalue)
-            _play(macro, res, bpm, art, -1, _length)
+            _play(macro, res, bpm, art, -1, _length, -1)
 
         elif char == "T":
             bpm = _getint(macro, 32, 255, 120)
@@ -426,8 +430,247 @@ def get_music_parser(path):
 
 ## Debugging, if directly called
 #
-# Parses its first argument as MML and displays the tuples.
+# If the first argument is the name of a *.mml file, reads it
+# and outputs equivalent MusicXML.
+# Otherwise, parses it as MML string and displays the tuples.
 #
 if __name__ == '__main__':
     import sys
-    print mml(sys.argv[1])
+    if not sys.argv[1].endswith(".mml"):
+        print mml(sys.argv[1])
+        sys.exit(0)
+
+    # helper functions for later
+    def ggT(a, b):
+        while b:
+            (a, b) = (b, a % b)
+        return a
+    def kgV(a, b):
+        return (a * b) // ggT(a, b)
+
+    # helper data for later
+    _lens = { 64: '64th', 32: '32nd', 16: '16th',
+      8: 'eighth', 4: 'quarter', 2: 'half', 1: 'whole' }
+
+    meta = mml_file_meta(sys.argv[1])
+    # meta.voices
+    from pprint import pprint
+    #pprint(meta)
+#    sys.exit(0)
+
+    # possibly override _addbartoplaylist here, but not needed
+
+    orig_play = _play
+    def _play(macro, res, bpm, art, note, length, extra):
+        # 'extra' can be: -1 (pause), 0‥83 (note), or a tuple
+        # (mml-octave-number, note-char, u'♭' | u'♮' | u'♯')
+
+        # parse sustain dots
+        ndots = 0
+        while macro and macro[0] == ".":
+            macro.pop(0)
+            ndots += 1
+
+        res.append((bpm, art, length, ndots, extra))
+
+    # call overridden functions
+    staves = mml_file(sys.argv[1])
+    #pprint(staves)
+
+    # create MusicXML document
+    import xml
+    import xml.dom.minidom
+    mdi = xml.dom.minidom.getDOMImplementation('')
+    doc = mdi.createDocument(None, 'score-partwise',
+      mdi.createDocumentType('score-partwise',
+      '-//Recordare//DTD MusicXML 3.0 Partwise//EN',
+      'http://www.musicxml.org/dtds/partwise.dtd'))
+    score = doc.documentElement
+    score.setAttribute('version', '3.0')
+    # carry over floppi.music-specific metadata
+    if meta.has_key('title'):
+        x = doc.createElement('movement-title')
+        x.appendChild(doc.createTextNode(meta['title']))
+        score.appendChild(x)
+        del(meta['title'])
+    tmpel = doc.createElement('identification')
+    if meta.has_key('composer'):
+        x = doc.createElement('creator')
+        x.setAttribute('type', 'composer');
+        x.appendChild(doc.createTextNode(meta['composer']))
+        tmpel.appendChild(x)
+        del(meta['composer'])
+    if meta.has_key('lyrics'):
+        x = doc.createElement('creator')
+        x.setAttribute('type', 'lyricist');
+        x.appendChild(doc.createTextNode(meta['lyrics']))
+        tmpel.appendChild(x)
+        del(meta['lyrics'])
+    if meta.has_key('arranger'):
+        x = doc.createElement('creator')
+        x.setAttribute('type', 'arranger');
+        x.appendChild(doc.createTextNode(meta['arranger']))
+        tmpel.appendChild(x)
+        del(meta['arranger'])
+    if meta.has_key('artist'):
+        x = doc.createElement('creator')
+        x.appendChild(doc.createTextNode(meta['artist']))
+        tmpel.appendChild(x)
+        del(meta['artist'])
+    if meta.has_key('copyright'):
+        x = doc.createElement('rights')
+        x.appendChild(doc.createTextNode(meta['copyright']))
+        tmpel.appendChild(x)
+        del(meta['copyright'])
+    tmpex = doc.createElement('encoding')
+    if meta.has_key('encoder'):
+        x = doc.createElement('encoder')
+        x.appendChild(doc.createTextNode(meta['encoder']))
+        tmpex.appendChild(x)
+        del(meta['encoder'])
+    x = doc.createElement('software')
+    x.appendChild(doc.createTextNode('floppi.music by Nik, Eike, and mirabilos'))
+    tmpex.appendChild(x)
+    tmpel.appendChild(tmpex)
+    if meta.has_key('source'):
+        x = doc.createElement('source')
+        x.appendChild(doc.createTextNode(meta['source']))
+        tmpel.appendChild(x)
+        del(meta['source'])
+    tmpex = doc.createElement('miscellaneous')
+    for tmp in meta:
+        x = doc.createElement('miscellaneous-field')
+        x.setAttribute('name', tmp)
+        x.appendChild(doc.createTextNode(str(meta[tmp])))
+        tmpex.appendChild(x)
+    tmpel.appendChild(tmpex)
+    score.appendChild(tmpel)
+    # required metadata
+    tmpel = doc.createElement('part-list')
+    for trkno in xrange(1, len(staves) + 1):
+        score_part = doc.createElement('score-part')
+        score_part.setAttribute('id', 'P' + str(trkno))
+        part_name = doc.createElement('part-name')
+        part_name.appendChild(doc.createTextNode('Zeile ' + str(trkno)))
+        score_part.appendChild(part_name)
+        tmpel.appendChild(score_part)
+    score.appendChild(tmpel)
+
+    # figure out which duration to use
+    notelens = 4
+    for trkno in xrange(1, len(staves) + 1):
+        for ply in staves[trkno - 1]:
+            if type(ply) is tuple:
+                dottedlen = ply[2]
+                for tmp in xrange(0, ply[3]):
+                    dottedlen *= 2
+                notelens = kgV(notelens, dottedlen)
+    divisions = notelens // 4
+
+    # add individual staves
+    for trkno in xrange(1, len(staves) + 1):
+        staff = staves[trkno - 1]
+        trknode = doc.createElement('part')
+        trknode.setAttribute('id', 'P' + str(trkno))
+
+        # attribute node, once per part, located in the first bar
+        tmpel = doc.createElement('attributes')
+        # we have up to 1/64th notes
+        x = doc.createElement('divisions')
+        x.appendChild(doc.createTextNode(str(divisions)))
+        tmpel.appendChild(x)
+        # use treble clef by default
+        tmpex = doc.createElement('clef')
+        x = doc.createElement('sign')
+        x.appendChild(doc.createTextNode('G'))
+        tmpex.appendChild(x)
+        x = doc.createElement('line')
+        x.appendChild(doc.createTextNode('2'))
+        tmpex.appendChild(x)
+        tmpel.appendChild(tmpex)
+
+        # "current" bar node and number (first, here)
+        barno = 1
+        barnode = doc.createElement('measure')
+        barnode.setAttribute('number', str(barno))
+        barnode.appendChild(tmpel)
+        # hack to always end on a bar line
+        if len(staff) == 0 or staff[-1] != 1:
+            staff.append(1)
+
+        # now iterate through the staff
+        bpm = -1
+        for ply in staff:
+            # finish a bar?
+            if ply == 1:
+                trknode.appendChild(barnode)
+                # force re-init on next note
+                barnode = None
+                continue
+            # start a new bar?
+            if barnode is None:
+                barno += 1
+                barnode = doc.createElement('measure')
+                barnode.setAttribute('number', str(barno))
+            # tempo change?
+            if bpm != ply[0]:
+                x = doc.createElement('sound')
+                x.setAttribute('tempo', str(ply[0]))
+                #XXX or in a direction container node?
+                barnode.appendChild(x)
+
+            # unpack and convert raw note to pitch (best guess)
+            (bpm, art, length, ndots, extra) = ply
+            if type(extra) is not tuple and extra != -1:
+                extra = _notefromofs[extra]
+
+            # convert to MusicXML
+            tmpel = doc.createElement('note')
+            if extra == -1:
+                tmpex = doc.createElement('rest')
+            else:
+                tmpex = doc.createElement('pitch')
+                x = doc.createElement('step')
+                x.appendChild(doc.createTextNode(extra[1]))
+                tmpex.appendChild(x)
+                if extra[2] != u'♮':
+                    x = doc.createElement('alter')
+                    if extra[2] == u'♭':
+                        x.appendChild(doc.createTextNode('-1'))
+                    elif extra[2] == u'♯':
+                        x.appendChild(doc.createTextNode('1'))
+                    tmpex.appendChild(x)
+                x = doc.createElement('octave')
+                x.appendChild(doc.createTextNode(str(extra[0] + 2)))
+                tmpex.appendChild(x)
+            tmpel.appendChild(tmpex)
+            dottedlen = notelens / length
+            for tmp in xrange(0, ndots):
+                dottedlen *= 1.5
+            x = doc.createElement('duration')
+            x.appendChild(doc.createTextNode(str(int(dottedlen))))
+            tmpel.appendChild(x)
+            if length in _lens.keys():
+                x = doc.createElement('type')
+                x.appendChild(doc.createTextNode(_lens[length]))
+                tmpel.appendChild(x)
+            # order is important!
+            for tmp in xrange(0, ndots):
+                tmpel.appendChild(doc.createElement('dot'))
+            if art == 'S':
+                tmpex = doc.createElement('notations')
+                x = doc.createElement('articulations')
+                x.appendChild(doc.createElement('staccato'))
+                tmpex.appendChild(x)
+                tmpel.appendChild(tmpex)
+            elif art == 'L':
+                #XXX
+                tmpex = doc.createElement('notations')
+                x = doc.createElement('articulations')
+                x.appendChild(doc.createElement('detached-legato'))
+                tmpex.appendChild(x)
+                tmpel.appendChild(tmpex)
+            barnode.appendChild(tmpel)
+        score.appendChild(trknode)
+
+    print doc.toxml("UTF-8")
