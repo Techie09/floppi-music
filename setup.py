@@ -49,7 +49,8 @@ setup(
     # Distribution information
     zip_safe         = False,
     install_requires = [
-                        'RPi.GPIO'
+                        'RPi.GPIO',
+                        'mmllib'
                        ],
     classifiers      = [
                         'Development Status :: 3 - Alpha',
