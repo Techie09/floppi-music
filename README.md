@@ -74,6 +74,15 @@ All source code and artwork:
        Eike Tim Jesinghaus <eike@naturalnet.de>
 ```
 
+The MML code is additionally:
+
+```
+ Published under The MirOS Licence.
+
+ Copyright © 2016
+       mirabilos <m@mirbsd.org>
+```
+
 The kangaroo in the artwork:
 
 ```

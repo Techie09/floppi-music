@@ -41,7 +41,22 @@ _notes = [(440.0 * pow(2, (n - 33) / 12.)) for n in xrange(0, 84)]
 ## Note offsets
 #
 #  Map note names to half-tone steps from the current C
+#  and back, assuming ♯ for all half-tones but B♭
 _noteoffsets = { "C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11 }
+_notefromofs = [ item for sublist in [ [
+    ( octave, 'C', u'♮' ),
+    ( octave, 'C', u'♯' ),
+    ( octave, 'D', u'♮' ),
+    ( octave, 'D', u'♯' ),
+    ( octave, 'E', u'♮' ),
+    ( octave, 'F', u'♮' ),
+    ( octave, 'F', u'♯' ),
+    ( octave, 'G', u'♮' ),
+    ( octave, 'G', u'♯' ),
+    ( octave, 'A', u'♮' ),
+    ( octave, 'B', u'♭' ),
+    ( octave, 'B', u'♮' ),
+  ] for octave in xrange(0, 7) ] for item in sublist ];
 
 ## Calculate playback length of a list of (frequency, duration) tuples
 #
