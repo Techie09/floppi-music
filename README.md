@@ -72,15 +72,7 @@ All source code and artwork:
  Copyright © 2013
        Dominik George <nik@naturalnet.de>
        Eike Tim Jesinghaus <eike@naturalnet.de>
-```
-
-The MML code is additionally:
-
-```
- Published under The MirOS Licence.
-
- Copyright © 2016
-       mirabilos <m@mirbsd.org>
+       Thorsten “mirabilos” Glaser <tg@mirbsd.org>
 ```
 
 The kangaroo in the artwork:
