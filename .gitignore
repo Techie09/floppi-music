@@ -1,5 +1,5 @@
-*.pyc
-*.png
-doc/doxygen/
-dist/
 *.egg-info/
+*.png
+*.pyc
+dist/
+doc/doxygen/
