@@ -2,9 +2,11 @@ All source code and artwork:
 
  Published under The MirOS Licence.
 
- Copyright © 2013
+ Copyright © 2013, 2016
        Dominik George <nik@naturalnet.de>
+ Copyright © 2013
        Eike Tim Jesinghaus <eike@naturalnet.de>
+       mirabilos <m@mirbsd.org>
 
  Provided that these terms and disclaimer and all copyright notices
  are retained or reproduced in an accompanying document, permission
@@ -44,3 +46,7 @@ The kangaroo in the artwork:
 
  If you are uncertain whether your use is acceptable, please write to
  Dominik George <nik@naturalnet.de>!
+
+
+Each example music file is covered by individual licencing terms, if
+any (i.e. not in the Public Domain), which are noted in the file itself.

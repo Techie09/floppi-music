@@ -69,10 +69,11 @@ All source code and artwork:
 ```
  Published under The MirOS Licence.
 
- Copyright © 2013
+ Copyright © 2013, 2016
        Dominik George <nik@naturalnet.de>
+ Copyright © 2013
        Eike Tim Jesinghaus <eike@naturalnet.de>
-       Thorsten “mirabilos” Glaser <tg@mirbsd.org>
+       mirabilos <m@mirbsd.org>
 ```
 
 The kangaroo in the artwork:
@@ -83,6 +84,9 @@ The kangaroo in the artwork:
  Copyright © 2012
        Carina Salomon <carina@naturalnet.de>
 ```
+
+Each example music file is covered by individual licencing terms, if
+any (i.e. not in the Public Domain), which are noted in the file itself.
 
 Credits
 -------
