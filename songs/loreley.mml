@@ -6,7 +6,7 @@
 # Copyright: MML encoding & arrangement © 2016 mirabilos, published under The MirOS Licence; copyright for text, music, and piano arrangement has expired
 # Source: Linder, August (Hrsg.): Deutsche Weisen : Die beliebtesten Volks- und geistlichen Lieder. Stuttgart: Albert Auer’s Musikverlag, n.d., c. 1900.
 # Instruments: Piano, Voice
-# MML-Tracks: 4 (5)
+# MML Tracks: 4 (5)
 # Verses: 3
 # Language: German
 # Tempo: Andante
@@ -24,37 +24,37 @@
 
 o2t76l8 g | mlg.   mna16 g ml>c<  mnb   a |   g4.            f4         f |
 # ⒈   Ich   weiss nicht, was soll  es  be-    deu-           ten,    dass
-# ⒉   Die   schön-______ ste Jung-__ frau     si-            tzet    dort
+# ⒉   Die   schön-______ ste Jung-___frau     si-            tzet    dort
 # ⒊   Den   Schif-______ fer im  klei-nen     Schif-         fe       er-
 o2t76l8 p | mle.   mnf16 e mlf    mnf   f |   e4.            d4         d |
 o1t76l8 p | p2.                           | p2.                           |
 o1t76l8 p | mlc16g16>c<mng mlc16a16>d<mnb | mlc16g16>c<mng ml<f16>f16amnf |
 
    e.    e16 e mldmnc d  | mle4. mnep g | mlg.   mna16 g ml>c<  mnb   a |
-#  ich______ so trau-_rig  bin?______ Ein Mär-   chen  aus  al-____ ten
-#  o-_______ ben wun-_der- bar,______ ihr gold-  nes   Ge-  schmei-_ de
-#  greift es mit wil-_dem  Weh,______ er  schaut nicht die  Fel-___ sen-
+#  ich______ so trau-_rig  bin?_____  Ein Mär-   chen  aus  al-____ ten
+#  o-_______ ben wun-_der- bar,_____  ihr gold-  nes   Ge-  schmei-_ de
+#  greift es mit wil-_dem  Weh,_____  er  schaut nicht die  Fel-___ sen-
    c.    c16 c<mlbmna b> | mlc4. mncp p | mle.   mnf16 e mlf    mnf   f |
 p4.              g4   g  | mlg ppmnp4 p | p2.                           |
 ml<g16>e16gmne  <g4   g> | mlc<gemnc4>p | mlc16g16>c<mng mlc16a16>d<mnb |
 
   g4.            f4         f | e.   e16 e   g     f   d  | mlc4. mncp e |
-# Zei-           ten,     das kommt_____ mir nicht aus dem Sinn._____ Die
-# bli-           tzet,    sie kämmt_____ ihr gol-  de- nes Haar._____ Sie
-# rif-           fe,       er schaut nur hin-auf   in  die Höh.______ Ich
+# Zei-           ten,     das kommt_____ mir nicht aus dem Sinn._____  Die
+# bli-           tzet,    sie kämmt_____ ihr gol-  de- nes Haar._____  Sie
+# rif-           fe,       er schaut nur hin-auf   in  die Höh.______  Ich
   e4.            d4         d | c.   c16 c  <b     b   b  | p2.          |
 p2.                           | p   p    p   d     d   f  | mle ppmnp4 p |
 mlc16g16>c<mng ml<f16>f16amnf |<g>  g    c  <g     g   g> | mlc<egmnc4 p |
 
-mld. mne16  d   g    d   d  |   b4.      a4   a |    g4   g mlf#mng   a   |
-# Luft____  ist kühl und es     dun-   kelt und      ru-hig fliesst__ der
-# kämmt es  mit gol- de- nem    Kam-     me und   singt ein Lied_____ da-
-# glau- be, die Wel- len ver-   schlin- gen  am      En- de Schif-fer und
-mlb.>mnc16< b   b    b   b  |  >d4.      c4   c |   <b4   p mlamn b>  c<< |
-  p   p     p  >d    p   p  |   g4.      e4   e |    d4   d<d4        d   |
-mlg>  d   mng<mlg>   d mng< | mlg>dmng<mlc>emna | ml<d>dmnb p4        f#  |
+mld.  mne16  d   g    d   d  |   b4.      a4   a |    g4   g mlf#mng   a   |
+# Luft_____  ist kühl und es     dun-   kelt und      ru-hig fliesst__ der
+# kämmt es   mit gol- de- nem    Kam-     me und   singt ein Lied_____ da-
+# glau- be,  die Wel- len ver-   schlin- gen  am      En- de Schif-fer und
+mlb.> mnc16< b   b    b   b  |  >d4.      c4   c |   <b4   p mlamn b>  c<< |
+  p   p      p  >d    p   p  |   g4.      e4   e |    d4   d<d4        d   |
+mlg>  d    mng<mlg>   d mng< | mlg>dmng<mlc>emna | ml<d>dmnb p4        f#  |
 
-# In the next bar, an o1g is missing at the end to fit on four tracks
+# The next measure missed an o1g as last eigth, to fit on four tracks
 # (but it’s doubled by the o2g in the vocals, so it’s ok musically)
 mlg4.mng4  g  |   g.     a16 g>mlc<mn   b   a |
 # Rhein;__ der    Gi-   pfel des Ber-____ ges
@@ -64,10 +64,10 @@ mlgb>cdc<mnb  | >>e.     f16 e mlfmn    f   f |
 mld4.mnd4> f< | p2.                           |
 mlb>defe mnd< | mlc16g16>c<mng mlc16a16>d<mnb | l16
 
-mlg4mn>   e     d4       d  |    c.     c16c ml<bmna b | ml>c4.mncp ||
-# fun-_________ kelt     im      A-_______ bend-son-_nen-schein.__
-# sa-___________me,      ge-     wal-___ti-ge   Me-__lo- dei._____
-# Sin-__________gen     die      Lo-_______re-_ ley_ ge- than.____
-mle4mn    g     f4       f  |    e.     e16e ml fmnf f | ml e4.mnep ||
-p2.                         |    p     p   p    g  g g | ml gppmnpp ||
-mlcg>mnc<pp8 ml<f>a>mnd<pp8 | ml<g>g>mncpl8p    d  c d | ml<cegmncp ||
+mlg4mn>   e     d4       d  |    c.     c16c ml<b mna b | ml>c4.mncp ||
+# fun-______    kelt     im      A-_______ bend-son-_ nen-schein.__
+# sa-_______    me,      ge-     wal-   ti-ge   Me-__ lo- dei._____
+# Sin-______    gen     die      Lo-______ re-_ ley__ ge- than.____
+mle4mn    g     f4       f  |    e.     e16e ml f mnf f | ml e4.mnep ||
+p2.                         |    p     p   p    g   g g | ml gppmnpp ||
+mlcg>mnc<pp8 ml<f>a>mnd<pp8 | ml<g>g>mncpl8p    d   c d | ml<cegmncp ||
