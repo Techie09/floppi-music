@@ -15,12 +15,13 @@
 # Key Signature:  D Major
 # Pickup Measure: none
 # Measures:       57
+# Floppi-Music:   beschleunigt und nach unten oktaviert
 
 # 1
-o3t42 p1     | p1   | f#edc#  | <bab>c# | dc#<ba  | gf#ge   |
-o3t42 d<abf# | gdga | >d<abf# | gdp2    | >f#edc# | <bab>c# |
-o3t42 d<abf# | gdga | >d<abf# | gdga    | >d<abf# | gdp2    |
-o3t42 d<abf# | gdga | >d<abf# | gdga    | >d<abf# | gdga    |
+o2t54 p1     | p1   | f#edc#  | <bab>c# | dc#<ba  | gf#ge   |
+o2t54 d<abf# | gdga | >d<abf# | gdp2    | >f#edc# | <bab>c# |
+o2t54 d<abf# | gdga | >d<abf# | gdga    | >d<abf# | gdp2    |
+o2t54 d<abf# | gdga | >d<abf# | gdga    | >d<abf# | gdga    |
 
 # 7
 >d<abf#       | gdga       | >d<abf#       | gdga           |
