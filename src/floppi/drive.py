@@ -88,6 +88,13 @@ class MusicalFloppy(Thread):
         # Go to home position, which is the middle track
         self.home()
 
+        # Wait for initial synchronisation mark
+        self._engine.syncmark(self)
+        self.wakeup.wait()
+        self.wakeup.clear()
+        # Give the engine some time to fill our playlist
+        sleep(0.01)
+
         while not self._exit:
             if self._playqueue:
                 tone = self._playqueue.pop(0)
@@ -248,6 +255,13 @@ class MusicalFloppyEngine(Thread):
         # Start all the drive threads
         for drive in self._drives:
             drive.start()
+
+        # Issue a short pause after all drives have set up themselves
+        # (are at the home track) and synchronise their wake-up event
+        sleep(0.5)
+        for drive in self._waiting:
+            drive.wakeup.set()
+        self._waiting = []
 
         # Main loop
         while not self._exit:
