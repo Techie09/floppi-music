@@ -1,0 +1,23 @@
+# Title:     Bruder Jakob
+# Copyright: MML scores (c) 2015, Dominik George <nik@naturalnet.de>
+
+t120 f g a f | f g a f | a b- >c2 | <a b- >c2 |
+t120 p1      | p1      | f g a f  | f g a f   |
+t120 p1      | p1      | p1       | p1        |
+t120 p1      | p1      | p1       | p1        |
+
+
+l8 c d c <b- l4 a f | l8 >c d c <b- l4 a f |
+   a b- >c2         | <a b- >c2            |
+   f g a f          | f g a f              |
+   p1               | p1                   |
+
+g c f2              | g c f2               | p1                  |
+l8 c d c <b- l4 a f | l8 >c d c <b- l4 a f | g c f2              |
+a b- >c2            | <a b- >c2            | l8 c d c <b- l4 a f |
+f g a f             | f g a f              | a b- >c2            |
+
+                     |                     |                      |        |
+g c f2               | p1                  | p1                   | p1     | p1
+l8 >c d c <b- l4 a f | g c f2              | g c f2               | p1     | p1
+<a b- >c2            | l8 c d c <b- l4 a f | l8 >c d c <b- l4 a f | g c f2 | g c f2
